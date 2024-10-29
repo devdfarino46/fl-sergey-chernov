@@ -1,0 +1,49 @@
+@import 'base/*';
+
+* {
+  color: white;
+}
+
+body {
+  background-color: #191A1B;
+}
+
+[class *= "__container"], .container {
+  max-width: 1362px;
+  padding: 0 18px;
+  min-width: 360px;
+  margin: 0 auto;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(217, 217, 217, 0.1);
+    border-radius: 10px;
+    transition: .2s ease;
+    
+    svg path {
+      transition: .2s ease;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        background: white;
+
+        svg path {
+          fill: #0E110A;
+        }
+      }
+    }
+  }
+}
+
+@import 'blocks/*';

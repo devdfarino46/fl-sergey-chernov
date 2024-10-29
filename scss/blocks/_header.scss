@@ -1,0 +1,33 @@
+.header {
+  font-family: 'Graphik LCG';
+  padding: 31px 0;
+  background-color: #0F120B;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__nav {
+  }
+
+  &__tel {
+    transition: .2s ease;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 139%;
+    letter-spacing: -0.05em;
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: rgba(255, 255, 255, 0.37);
+      }
+    }
+  }
+
+  &__btn {
+    flex: 1 0 auto;
+  }
+}
+
