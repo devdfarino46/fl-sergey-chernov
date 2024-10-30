@@ -1,0 +1,56 @@
+.feedback {
+  padding: clamp(50px, 2.737rem + 0.97vw, 57px) 0 clamp(20px, -1.742rem + 7.48vw, 74px);
+
+		&__container {
+		}
+
+		&__subtitle {
+      font-weight: 500;
+      font-size: 86px;
+      line-height: 100%;
+      letter-spacing: -0.05em;
+
+      img {
+        width: auto;
+        height: 1.31em;
+        margin-block-end: -.16em;
+      }
+
+      @media (max-width: 940px) {
+        font-weight: 400;
+      }
+		}
+
+		&__content {
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: clamp(30px, -0.341rem + 5.54vw, 70px) 30px;
+      justify-content: space-between;
+      max-width: 1149px;
+      margin: clamp(24px, -0.661rem + 5.40vw, 63px) auto 0;
+
+      @media (max-width: 940px) {
+        display: flex;
+        flex-direction: column;
+      }
+		}
+
+		&__subtitle {
+      font-size: clamp(45px, 0.541rem + 5.68vw, 86px);
+		}
+
+		&__arrow-icon {
+      align-self: flex-end;
+
+      @media (max-width: 940px) {
+        display: none;
+      }
+		}
+
+		&__form {
+      max-width: 783px;
+		}
+
+		&__contacts {
+		}
+}

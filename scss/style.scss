@@ -2,10 +2,11 @@
 
 * {
   color: white;
+  font-family: 'Graphik LCG';
 }
 
 body {
-  background-color: #191A1B;
+  background-color: #0D100A;
 }
 
 [class *= "__container"], .container {
@@ -44,6 +45,12 @@ body {
       }
     }
   }
+}
+
+.title {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 139%;
 }
 
 @import 'blocks/*';
