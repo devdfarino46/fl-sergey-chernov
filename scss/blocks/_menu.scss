@@ -1,0 +1,35 @@
+.menu {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+  padding-bottom: 0;
+  opacity: 0;
+  transition: .3s ease;
+
+  &.--active {
+    max-height: 10000px;
+    padding-bottom: 20px;
+    opacity: 1;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__nav {
+
+    .nav__list {
+      flex-direction: column;
+    }
+  }
+
+  &__btn {
+    display: none;
+
+    @media (max-width: 540px) {
+      display: flex;
+    }
+  }
+}

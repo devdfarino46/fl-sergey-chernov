@@ -1,7 +1,6 @@
 .header {
   font-family: 'Graphik LCG';
   padding: 31px 0;
-  background-color: #0F120B;
 
   &__container {
     display: flex;
@@ -9,7 +8,50 @@
     gap: 10px;
   }
 
+  &__menu-btn {
+    width: 35px;
+    height: 35px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+
+    span {
+      transition: .2s ease;
+      display: block;
+      height: 4px;
+      width: 100%;
+      border-radius: 4px;
+      background-color: #FF8D27;
+    }
+
+    &.--active {
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(1) {
+        transform: translate(6px, -2px) rotate(45deg);
+        transform-origin: left top;
+      }
+
+      span:nth-child(3) {
+        transform: translate(6px, 5px) rotate(-45deg);
+        transform-origin: left bottom;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      display: flex;
+    }
+  }
+
   &__nav {
+
+    @media (max-width: 1280px) {
+      display: none;
+    }
   }
 
   &__tel {
@@ -18,16 +60,27 @@
     font-size: 19px;
     line-height: 139%;
     letter-spacing: -0.05em;
+    margin-left: auto;
+    margin-right: auto;
 
     @media (any-hover: hover) {
       &:hover {
         color: rgba(255, 255, 255, 0.37);
       }
     }
+
+    @media (max-width: 1280px) {
+      font-weight: 400;
+    }
   }
 
   &__btn {
     flex: 1 0 auto;
+    max-width: 450px;
+
+    @media (max-width: 540px) {
+      display: none;
+    }
   }
 }
 

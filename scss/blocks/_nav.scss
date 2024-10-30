@@ -29,5 +29,10 @@
         background: white;
       }
     }
+
+    &.--active {
+      color: #0E110A;
+      background: white;
+    }
   }
 }

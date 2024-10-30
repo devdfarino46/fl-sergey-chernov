@@ -1,1 +1,1 @@
-(0).toString();
+(()=>{const e=document.querySelector(".header"),t=document.querySelector(".menu");if(e&&t){const e=document.querySelector(".header__menu-btn");e.addEventListener("click",(()=>{t.classList.toggle("--active"),e.classList.toggle("--active")}))}})();
