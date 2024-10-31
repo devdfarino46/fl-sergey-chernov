@@ -11,73 +11,111 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:regular,500,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/fonts.min.css">
   <link rel="stylesheet" href="css/style.min.css">
+  <script src="js-lib/swiper.min.js"></script>
 </head>
 <body>
   <div class="wrapper">
-    <header class="header">
-      <div class="header__container">
-        <button class="header__menu-btn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav class="nav header__nav">
-          <ul class="nav__list">
-            <li class="nav__item --active"><a href="#">Главная</a></li>
-            <li class="nav__item"><a href="#">Обо мне</a></li>
-            <li class="nav__item"><a href="#">Услуги</a></li>
-            <li class="nav__item"><a href="#">Кейсы</a></li>
-            <li class="nav__item"><a href="#">Отзывы</a></li>
-            <li class="nav__item"><a href="#">Блог</a></li>
-            <li class="nav__item"><a href="#">Контакты</a></li>
-          </ul>
-        </nav>
-        <a href="tel:+79011477978" class="header__tel">+7 901 147-79-78</a>
-        <div class="socials">
-          <a href="#">
-            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M1.78861 5.22197C5.65481 3.64154 8.23227 2.59952 9.52101 2.0961C13.2049 0.658588 13.9694 0.408923 14.4687 0.400464C14.5786 0.398812 14.823 0.424283 14.9826 0.545324C15.1152 0.647407 15.1525 0.785462 15.1711 0.882391C15.1877 0.979224 15.2105 1.19992 15.1918 1.37219C14.9929 3.33996 14.129 8.11509 13.6897 10.3191C13.5053 11.2516 13.1386 11.5643 12.7843 11.5948C12.0135 11.6613 11.4292 11.1173 10.6834 10.6586C9.51686 9.94052 8.85799 9.49369 7.72465 8.79311C6.4152 7.98345 7.26469 7.53837 8.01058 6.81115C8.20534 6.62079 11.5991 3.72456 11.6634 3.46187C11.6717 3.42901 11.6799 3.30651 11.6012 3.24196C11.5246 3.17721 11.4106 3.19937 11.3277 3.21687C11.2096 3.24176 9.34697 4.39831 5.73354 6.68632C5.2052 7.02737 4.72659 7.19362 4.29563 7.18487C3.82323 7.17534 2.91159 6.93365 2.23407 6.72715C1.4053 6.47379 0.744362 6.33982 0.802376 5.90952C0.831383 5.68552 1.16082 5.45627 1.78861 5.22197Z" fill="white"/>
-            </svg>
-          </a>
-          <a href="#">
-            <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M8.64191 8.8C3.72198 8.8 0.915762 5.4967 0.798828 0H3.26329C3.34424 4.03443 5.16107 5.74333 6.60015 6.09569V0H8.92079V3.47945C10.3419 3.32971 11.8348 1.74414 12.3385 0H14.6591C14.2723 2.14936 12.6533 3.73492 11.5021 4.38677C12.6533 4.91529 14.4973 6.29828 15.1988 8.8H12.6443C12.0957 7.12632 10.7287 5.83142 8.92079 5.65523V8.8H8.64191Z" fill="white"/>
-            </svg>
-          </a>
-        </div>
-        <button class="btn header__btn">
-          <span>Оставить заявку</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5686 4.11128C11.8237 4.36642 11.8237 4.78009 11.5686 5.03523L5.03523 11.5686C4.78009 11.8237 4.36642 11.8237 4.11128 11.5686C3.85614 11.3134 3.85614 10.8998 4.11128 10.6446L10.6446 4.11128C10.8998 3.85614 11.3134 3.85614 11.5686 4.11128Z" fill="white"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.91992 4.57326C3.91992 4.21243 4.21243 3.91992 4.57326 3.91992H11.1066C11.4674 3.91992 11.7599 4.21243 11.7599 4.57326V11.1066C11.7599 11.4674 11.4674 11.7599 11.1066 11.7599C10.7458 11.7599 10.4533 11.4674 10.4533 11.1066V5.22659H4.57326C4.21243 5.22659 3.91992 4.93408 3.91992 4.57326Z" fill="white"/>
-          </svg>
-        </button>
-      </div>
-    </header>
-    <div class="menu">
-      <div class="menu__container">
-        <nav class="nav menu__nav">
-          <ul class="nav__list">
-            <li class="nav__item --active"><a href="#">Главная</a></li>
-            <li class="nav__item"><a href="#">Обо мне</a></li>
-            <li class="nav__item"><a href="#">Услуги</a></li>
-            <li class="nav__item"><a href="#">Кейсы</a></li>
-            <li class="nav__item"><a href="#">Отзывы</a></li>
-            <li class="nav__item"><a href="#">Блог</a></li>
-            <li class="nav__item"><a href="#">Контакты</a></li>
-          </ul>
-        </nav>
-        <button class="btn menu__btn">
-          <span>Оставить заявку</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5686 4.11128C11.8237 4.36642 11.8237 4.78009 11.5686 5.03523L5.03523 11.5686C4.78009 11.8237 4.36642 11.8237 4.11128 11.5686C3.85614 11.3134 3.85614 10.8998 4.11128 10.6446L10.6446 4.11128C10.8998 3.85614 11.3134 3.85614 11.5686 4.11128Z" fill="white"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.91992 4.57326C3.91992 4.21243 4.21243 3.91992 4.57326 3.91992H11.1066C11.4674 3.91992 11.7599 4.21243 11.7599 4.57326V11.1066C11.7599 11.4674 11.4674 11.7599 11.1066 11.7599C10.7458 11.7599 10.4533 11.4674 10.4533 11.1066V5.22659H4.57326C4.21243 5.22659 3.91992 4.93408 3.91992 4.57326Z" fill="white"/>
-          </svg>
-        </button>
-      </div>
-    </div>
 
     <main class="page">
+      <section class="section hero">
+        <div class="hero__image">
+          <img class="lazyload" data-src="img/hero.webp" alt="" width="798" height="738">
+        </div>
+
+        <div class="hero__gradient"></div>
+
+        <header class="header">
+          <div class="header__container">
+            <button class="header__menu-btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <nav class="nav header__nav">
+              <ul class="nav__list">
+                <li class="nav__item --active"><a href="#">Главная</a></li>
+                <li class="nav__item"><a href="#">Обо мне</a></li>
+                <li class="nav__item"><a href="#">Услуги</a></li>
+                <li class="nav__item"><a href="#">Кейсы</a></li>
+                <li class="nav__item"><a href="#">Отзывы</a></li>
+                <li class="nav__item"><a href="#">Блог</a></li>
+                <li class="nav__item"><a href="#">Контакты</a></li>
+              </ul>
+            </nav>
+            <a href="tel:+79011477978" class="header__tel">+7 901 147-79-78</a>
+            <div class="socials">
+              <a href="#">
+                <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1.78861 5.22197C5.65481 3.64154 8.23227 2.59952 9.52101 2.0961C13.2049 0.658588 13.9694 0.408923 14.4687 0.400464C14.5786 0.398812 14.823 0.424283 14.9826 0.545324C15.1152 0.647407 15.1525 0.785462 15.1711 0.882391C15.1877 0.979224 15.2105 1.19992 15.1918 1.37219C14.9929 3.33996 14.129 8.11509 13.6897 10.3191C13.5053 11.2516 13.1386 11.5643 12.7843 11.5948C12.0135 11.6613 11.4292 11.1173 10.6834 10.6586C9.51686 9.94052 8.85799 9.49369 7.72465 8.79311C6.4152 7.98345 7.26469 7.53837 8.01058 6.81115C8.20534 6.62079 11.5991 3.72456 11.6634 3.46187C11.6717 3.42901 11.6799 3.30651 11.6012 3.24196C11.5246 3.17721 11.4106 3.19937 11.3277 3.21687C11.2096 3.24176 9.34697 4.39831 5.73354 6.68632C5.2052 7.02737 4.72659 7.19362 4.29563 7.18487C3.82323 7.17534 2.91159 6.93365 2.23407 6.72715C1.4053 6.47379 0.744362 6.33982 0.802376 5.90952C0.831383 5.68552 1.16082 5.45627 1.78861 5.22197Z" fill="white"/>
+                </svg>
+              </a>
+              <a href="#">
+                <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8.64191 8.8C3.72198 8.8 0.915762 5.4967 0.798828 0H3.26329C3.34424 4.03443 5.16107 5.74333 6.60015 6.09569V0H8.92079V3.47945C10.3419 3.32971 11.8348 1.74414 12.3385 0H14.6591C14.2723 2.14936 12.6533 3.73492 11.5021 4.38677C12.6533 4.91529 14.4973 6.29828 15.1988 8.8H12.6443C12.0957 7.12632 10.7287 5.83142 8.92079 5.65523V8.8H8.64191Z" fill="white"/>
+                </svg>
+              </a>
+            </div>
+            <button class="btn header__btn">
+              <span>Оставить заявку</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5686 4.11128C11.8237 4.36642 11.8237 4.78009 11.5686 5.03523L5.03523 11.5686C4.78009 11.8237 4.36642 11.8237 4.11128 11.5686C3.85614 11.3134 3.85614 10.8998 4.11128 10.6446L10.6446 4.11128C10.8998 3.85614 11.3134 3.85614 11.5686 4.11128Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.91992 4.57326C3.91992 4.21243 4.21243 3.91992 4.57326 3.91992H11.1066C11.4674 3.91992 11.7599 4.21243 11.7599 4.57326V11.1066C11.7599 11.4674 11.4674 11.7599 11.1066 11.7599C10.7458 11.7599 10.4533 11.4674 10.4533 11.1066V5.22659H4.57326C4.21243 5.22659 3.91992 4.93408 3.91992 4.57326Z" fill="white"/>
+              </svg>
+            </button>
+          </div>
+        </header>
+        <div class="menu">
+          <div class="menu__container">
+            <nav class="nav menu__nav">
+              <ul class="nav__list">
+                <li class="nav__item --active"><a href="#">Главная</a></li>
+                <li class="nav__item"><a href="#">Обо мне</a></li>
+                <li class="nav__item"><a href="#">Услуги</a></li>
+                <li class="nav__item"><a href="#">Кейсы</a></li>
+                <li class="nav__item"><a href="#">Отзывы</a></li>
+                <li class="nav__item"><a href="#">Блог</a></li>
+                <li class="nav__item"><a href="#">Контакты</a></li>
+              </ul>
+            </nav>
+            <button class="btn menu__btn">
+              <span>Оставить заявку</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M11.5686 4.11128C11.8237 4.36642 11.8237 4.78009 11.5686 5.03523L5.03523 11.5686C4.78009 11.8237 4.36642 11.8237 4.11128 11.5686C3.85614 11.3134 3.85614 10.8998 4.11128 10.6446L10.6446 4.11128C10.8998 3.85614 11.3134 3.85614 11.5686 4.11128Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.91992 4.57326C3.91992 4.21243 4.21243 3.91992 4.57326 3.91992H11.1066C11.4674 3.91992 11.7599 4.21243 11.7599 4.57326V11.1066C11.7599 11.4674 11.4674 11.7599 11.1066 11.7599C10.7458 11.7599 10.4533 11.4674 10.4533 11.1066V5.22659H4.57326C4.21243 5.22659 3.91992 4.93408 3.91992 4.57326Z" fill="white"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero__container">
+          <div class="hero__content">
+            <h1 class="hero__title">Сергей Чернов</h1>
+            <div class="hero__text-wrap">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17.7071 17.7071C18.0976 17.3166 18.0976 16.6834 17.7071 16.2929L7.70711 6.29289C7.31658 5.90237 6.68342 5.90237 6.29289 6.29289C5.90237 6.68342 5.90237 7.31658 6.29289 7.70711L16.2929 17.7071C16.6834 18.0976 17.3166 18.0976 17.7071 17.7071Z" fill="white"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 17C6 17.5523 6.44772 18 7 18H17C17.5523 18 18 17.5523 18 17V7C18 6.44771 17.5523 6 17 6C16.4477 6 16 6.44771 16 7V16H7C6.44772 16 6 16.4477 6 17Z" fill="white"/>
+              </svg>
+              <p>
+                Маркетолог с большим опытом <br>
+                ведения реального бизнеса
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="hero__services-wrap">
+          <ul class="hero__services">
+            <li class="hero__service-item">Создание и продвижение сайтов</li>
+            <li class="hero__service-item">Управление репутацией SERM</li>
+            <li class="hero__service-item">Внедрение Битрикс 24</li>
+            <li class="hero__service-item">Контекстная реклама</li>
+            <li class="hero__service-item">Реклама в соц.сетях</li>
+            <li class="hero__service-item">Лидогенерация</li>
+            <li class="hero__service-item">Видеореклама</li>
+          </ul>
+        </div>
+      </section>
+
+<!------------------------------- FEEDBACK ------------------------------------>
       <section class="section feedback">
         <div class="feedback__container">
           <h2 class="title feedback__title">[ оставить заявку ]</h2>
@@ -190,6 +228,7 @@
     </footer>
   </div>
 
+  <script src="js-lib/lazysizes.min.js"></script>
   <script src="js/main.bundle.js"></script>
 </body>
 </html>

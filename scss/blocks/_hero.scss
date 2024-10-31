@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 31px;
+
+  &>* {
+    position: relative;
+  }
+
+	&__container {
+    margin-top: auto;
+    padding-top: 30px;
+    padding-bottom: clamp(40px, -0.456rem + 8.76vw, 112px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+	}
+
+  &__image {
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: max-content;
+    height: max-content;
+
+    img {
+      width: clamp(700px, 42.642rem + 2.77vw, 720px);
+      height: auto;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      aspect-ratio: 1 / 1;
+      width: 56%;
+      top: -17%;
+      left: -3%;
+      background: rgba(217, 217, 217, 0.22);
+      filter: blur(175px);
+      border-radius: 100%;
+    }
+  }
+
+  &__gradient {
+    pointer-events: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: clamp(443px, 24.973rem + 6.79vw, 492px);
+    background: linear-gradient(180deg, rgba(15, 18, 11, 0) 12.94%, #0F120B 100%);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+	&__title {
+    font-size: clamp(42px, 1.065rem + 4.62vw, 80px);
+    line-height: 136%;
+    font-weight: 400;
+    letter-spacing: -0.05em;
+    margin-bottom: clamp(24px, 1.089rem + 1.22vw, 34px);
+	}
+
+	&__text-wrap {
+
+    svg {
+      margin-bottom: clamp(20px, 0.470rem + 2.31vw, 39px);
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 139%;
+      letter-spacing: -0.05em;
+    }
+	}
+
+  &__services-wrap {
+    display: flex;
+    gap: 5px;
+    overflow: hidden;
+  }
+
+	&__services {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+	}
+
+	&__service-item {
+    min-width: max-content;
+    font-size: 17px;
+    line-height: 139%;
+    letter-spacing: -0.05em;
+    padding: 10px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 59px;
+	}
+}
