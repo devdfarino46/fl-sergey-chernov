@@ -1,15 +1,21 @@
 .hero {
   position: relative;
-  min-height: 100vh;
   padding-bottom: 31px;
+  display: flex;
+  flex-direction: column;
+  background: #0D100A;
+  color: white;
+  max-height: 821px;
+  height: 100vh;
 
   &>* {
     position: relative;
   }
 
 	&__container {
+    width: 100%;
     margin-top: auto;
-    padding-top: 30px;
+    padding-top: 50px;
     padding-bottom: clamp(40px, -0.456rem + 8.76vw, 112px);
     display: flex;
     flex-direction: column;
