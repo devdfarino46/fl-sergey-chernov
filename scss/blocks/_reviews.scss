@@ -1,0 +1,48 @@
+.reviews {
+  padding-top: clamp(40px, 0.450rem + 5.12vw, 77px);
+  padding-bottom: clamp(20px, 0.862rem + 0.97vw, 27px);
+
+		&__container {
+		}
+
+		&__title {
+		}
+
+		&__slider {
+      margin-top: clamp(40px, 0.616rem + 4.71vw, 74px);
+      position: relative;
+
+      .swiper {
+        touch-action: pan-y;
+      }
+
+      .swiper-wrapper {
+        display: flex;
+      }
+
+      .swiper-slide {
+        flex: 1 0 331px;
+      }
+		}
+
+    &__slider-btns {
+      position: absolute;
+      transform: translateY(-100%);
+      top: calc(clamp(40px, 0.616rem + 4.71vw, 74px) * -1);
+      right: 0;
+
+      display: flex;
+      gap: 7px;
+      align-items: center;
+    }
+
+    &__slider-btn {
+      display: flex;
+      opacity: 1;
+      transition: .3s ease;
+
+      &:disabled {
+        opacity: 0;
+      }
+    }
+}

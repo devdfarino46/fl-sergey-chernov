@@ -1,7 +1,7 @@
 @import 'base/*';
 
 * {
-  font-family: 'Graphik LCG';
+  font-family: 'Graphik LCG', sans-serif;
   font-weight: 400;
 }
 
@@ -51,10 +51,20 @@ body {
   }
 }
 
+.rel {
+  position: relative;
+}
+
 .title {
   font-weight: 300;
   font-size: 18px;
   line-height: 139%;
+}
+
+.fiers {
+  position: absolute;
+  left: 53px;
+  top: -93px;
 }
 
 @import 'blocks/*';

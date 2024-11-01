@@ -1,0 +1,67 @@
+.review {
+  max-width: 331px;
+  max-height: 600px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  position: relative;
+  padding: 25px 20px 45px 30px;
+
+  &__date {
+    position: absolute;
+    top: 18px;
+    right: 19px;
+    font-size: 13px;
+    line-height: 185%;
+    color: rgba(14, 17, 10, 0.36);
+  }
+
+  &__avatar {
+    border-radius: 100%;
+    width: 67px;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 16px;
+  }
+
+  &__name {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 112%;
+    margin-bottom: 10px;
+  }
+
+  &__rating {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+    margin-bottom: 27px;
+  }
+
+  &__text {
+    font-size: 15px;
+    line-height: 160%;
+    overflow: hidden;
+
+    display: -moz-box;
+    display: -webkit-box;
+    line-clamp: 12;
+    -webkit-line-clamp: 12;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+
+    &.--full {
+      display: block;
+    }
+  }
+
+  &__full-btn {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: rgba(14, 17, 10, 0.36);
+    margin-top: 5px;
+
+    &:disabled {
+      display: none;
+    }
+  }
+}
