@@ -1,0 +1,96 @@
+.services {
+  padding-top: clamp(25px, 1.008rem + 1.39vw, 35px);
+  padding-bottom: clamp(50px, 0.854rem + 5.68vw, 91px);
+
+		&__container {
+		}
+
+		&__title {
+		}
+
+		&__list {
+      margin-top: 33px;
+		}
+
+		&__item {
+      cursor: pointer;
+      padding: clamp(25px, 0.898rem + 1.66vw, 37px) 0 clamp(15px, 0.273rem + 1.66vw, 27px);
+      border-top: 1px solid #D9D9D9;
+      transition: .3s ease;
+      
+      .container {
+        position: relative;
+        padding-left: 79px+18;
+        padding-left: calc(clamp(35px, -0.250rem + 6.09vw, 79px) + 18px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (max-width: 640px) {
+          align-items: stretch;
+        }
+      }
+		}
+
+    @media (any-hover: hover) {
+      &__item:hover {
+        background: rgba($color: #060606, $alpha: 0.03);
+      }
+
+      &__item:hover &__item-btn {
+        display: flex;
+      }
+    }
+
+		&__item-title {
+      font-weight: 500;
+      font-size: clamp(32px, 1.058rem + 2.35vw, 49px);
+      line-height: 132%;
+      letter-spacing: -0.05em;
+      margin-bottom: clamp(6px, 0.043rem + 0.83vw, 12px);
+
+      b {
+        position: absolute;
+        left: 18px;
+        top: clamp(16px, 0.446rem + 1.39vw, 26px);
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 1;
+      }
+		}
+
+		&__sublist {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+
+      @media (max-width: 640px) {
+        flex-direction: column;
+      }
+		}
+
+		&__subitem {
+      font-size: clamp(11px, 0.410rem + 0.69vw, 16px);
+      line-height: 139%;
+      letter-spacing: -0.05em;
+      padding: 8px 31px 10px;
+      background: rgba(217, 217, 217, 0.7);
+      border-radius: 10px;
+      transition: .2s ease;
+
+      @media (any-hover: hover) {
+        &:hover {
+          background: rgba(217, 217, 217, 0.3);
+        }
+      }
+		}
+
+		&__item-btn {
+      margin-top: 10px;
+      display: none;
+
+      @media (max-width: 640px) {
+        display: flex !important;
+      }
+		}
+}

@@ -8,6 +8,7 @@ const imgLinks = document.querySelectorAll('.img-link');
 const aboutVideo = document.querySelector('.about-video');
 const reviewItems = document.querySelectorAll('.review');
 const reviews = document.querySelector('.reviews');
+const services = document.querySelector('.services');
 
 if (header && menu) {
   const menuBtn = header.querySelector('.header__menu-btn');
@@ -71,10 +72,8 @@ imgLinks.forEach( imgLink => {
   });
 
   imgLoop.addEventListener('click', (ev) => {
-    if (ev.target !== img) {
-      imgLoop.classList.remove('--active');
-      document.body.classList.remove('no-scroll');
-    }
+    imgLoop.classList.remove('--active');
+    document.body.classList.remove('no-scroll');
   })
 });
 
@@ -104,3 +103,25 @@ reviewItems.forEach(review => {
     review.style.maxHeight = 'none';
   })
 });
+
+if (services) {
+  const items = services.querySelectorAll('.services__item');
+  items.forEach((item, index) => {
+    const title = item.querySelector('.services__item-title');
+    const btn = item.querySelector('.services__item-btn');
+    if (index < 10) {
+      title.innerHTML = `<b>0${index + 1}</b> ${title.innerHTML}`;
+    } else {
+      title.innerHTML = `<b>${index + 1}</b> ${title.innerHTML}`;
+    }
+
+    item.addEventListener('touchmove', () => {
+      btn.style.display = 'flex';
+    });
+    document.addEventListener('touchstart', (ev) => {
+      if (!ev.composedPath().includes(item)) {
+        btn.style.display = 'none';
+      }
+    })
+  });
+}
