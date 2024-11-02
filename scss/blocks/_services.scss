@@ -57,7 +57,7 @@
 
       @media (max-width: 640px) {
         opacity: 1;
-        transform: scale(1) rotateZ(0deg);
+        transform: scale(1) rotateZ(0deg) !important;
         position: absolute;
         width: 148px;
         height: 148px;

@@ -193,7 +193,7 @@ if (services) {
   });
 
   services.addEventListener('mousemove', ev => {
-    if (window.innerWidth <= 640) {
+    if (window.innerWidth > 640) {
       items.forEach(item => {
         const icon = item.querySelector('._icon');
         icon.style.left = ev.clientX+ 'px';
