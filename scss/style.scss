@@ -65,6 +65,10 @@ body {
   position: absolute;
   left: 53px;
   top: -93px;
+  animation-name: scale;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
 }
 
 @import 'blocks/*';
