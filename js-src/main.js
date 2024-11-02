@@ -12,17 +12,29 @@ const services = document.querySelector('.services');
 
 if (header && menu) {
   const menuBtn = header.querySelector('.header__menu-btn');
+  const nav = menu.querySelector('.nav');
 
   menuBtn.addEventListener('click', () => {
     menu.classList.toggle('--active');
     menuBtn.classList.toggle('--active');
     header.classList.toggle('--active');
-  })
+  });
+
+  const itemRel = nav.querySelectorAll('.nav__item.rel');
+  
+  itemRel.forEach(item => {
+    const link = item.querySelector('.nav__item.rel>a');
+    link.addEventListener('click', (e) => {
+      item.classList.toggle('--active');
+    });
+  });
 }
 
 if (hero) {
   const servicesWrap = hero.querySelector('.hero__services-wrap');
   const services = hero.querySelector('.hero__services');
+  const circles = hero.querySelector('.hero__circles');
+  
 
   document.addEventListener('DOMContentLoaded', () => {
     if (services.children[0].getBoundingClientRect().left <= 100) {
@@ -36,7 +48,17 @@ if (hero) {
     }
   });
 
+  const top = hero.getBoundingClientRect().top;
 
+  window.addEventListener('scroll', ev => {
+    if (
+      hero.getBoundingClientRect().bottom > 0 &&
+      hero.getBoundingClientRect().top < window.innerHeight
+    ) {
+      const move = hero.getBoundingClientRect().top - top;
+      circles.style.transform = `translateY(${move * -0.1}px)`;
+    }
+  });
 }
 
 if (faq) {

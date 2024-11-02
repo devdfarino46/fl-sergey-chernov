@@ -22,16 +22,29 @@
 
   &__nav {
 
-    .nav__list {
-      flex-direction: column;
-    }
-  }
+    .nav {
 
-  &__btn {
-    display: none;
+      &__list {
+        flex-direction: column;
+        max-width: 600px;
+      }
 
-    @media (max-width: 540px) {
-      display: flex;
+      &__sublist {
+        gap: 3px;
+        position: static;
+        display: flex;
+        flex-direction: column;
+      }
+
+      &__item.rel.--active &__sublist {
+        margin-top: 5px;
+      }
+
+      &__subitem {
+        a {
+          padding: 6px 25px;
+        }
+      }
     }
   }
 }

@@ -1,6 +1,5 @@
 .header {
-  font-family: 'Graphik LCG';
-  padding: clamp(10px, -0.196rem + 2.43vw, 30px) 0;
+  padding: clamp(22px, 0.932rem + 1.11vw, 30px) 0;
 
   &.--active {
     background-color: #0D100A;
@@ -13,21 +12,23 @@
   }
 
   &__menu-btn {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 4px;
+    gap: 3px;
+    background: #FFFFFF;
+    border-radius: 5px;
 
     span {
       transition: .2s ease;
       display: block;
-      height: 4px;
-      width: 100%;
+      height: 2px;
+      width: 15px;
       border-radius: 4px;
-      background-color: #FF8D27;
+      background-color: #000000;
     }
 
     &.--active {
@@ -36,12 +37,12 @@
       }
 
       span:nth-child(1) {
-        transform: translate(6px, -2px) rotate(45deg);
+        transform: translate(3px, 0) rotate(45deg);
         transform-origin: left top;
       }
 
       span:nth-child(3) {
-        transform: translate(6px, 5px) rotate(-45deg);
+        transform: translate(3px, 0) rotate(-45deg);
         transform-origin: left bottom;
       }
     }
@@ -76,6 +77,20 @@
     @media (max-width: 1280px) {
       font-weight: 400;
     }
+
+    @media (max-width: 540px) {
+      display: none;
+    }
+  }
+
+  .socials {
+    &__tel-link {
+      display: none;
+
+      @media (max-width: 540px) {
+        display: flex;
+      }
+    }
   }
 
   &__btn {
@@ -83,7 +98,12 @@
     max-width: 450px;
 
     @media (max-width: 540px) {
-      display: none;
+      font-size: 14px;
+      padding: 10px 12px;
+      justify-content: center;
+      svg {
+        display: none;
+      }
     }
   }
 }

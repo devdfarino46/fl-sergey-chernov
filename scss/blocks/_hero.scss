@@ -3,13 +3,25 @@
   padding-bottom: 31px;
   display: flex;
   flex-direction: column;
-  background: #0D100A;
   color: white;
-  max-height: 821px;
-  height: 100vh;
+  min-height: 100vh;
+
+  background-color: #0F120B;
+  background: url(../img/bg/hero/main.webp) no-repeat bottom center;
+  background-size: cover;
 
   &>* {
     position: relative;
+  }
+
+  &__circles {
+    pointer-events: none;
+    position: absolute;
+    width: 326px;
+    height: 326px;
+    left: calc(50% + 11%);
+    bottom: 271px;
+    background: url(../img/bg/hero/circles.webp) no-repeat center / contain;
   }
 
 	&__container {
@@ -20,50 +32,22 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media (max-width: 640px) {
+      margin-top: 0;
+      margin-bottom: auto;
+      align-items: center;
+    }
 	}
-
-  &__image {
-    pointer-events: none;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    width: max-content;
-    height: max-content;
-
-    img {
-      width: clamp(700px, 42.642rem + 2.77vw, 720px);
-      height: auto;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      aspect-ratio: 1 / 1;
-      width: 56%;
-      top: -17%;
-      left: -3%;
-      background: rgba(217, 217, 217, 0.22);
-      filter: blur(175px);
-      border-radius: 100%;
-    }
-  }
-
-  &__gradient {
-    pointer-events: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: clamp(443px, 24.973rem + 6.79vw, 492px);
-    background: linear-gradient(180deg, rgba(15, 18, 11, 0) 12.94%, #0F120B 100%);
-  }
-
+  
   &__content {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media (max-width: 640px) {
+      text-align: center;
+    }
   }
 
 	&__title {
@@ -72,12 +56,20 @@
     font-weight: 400;
     letter-spacing: -0.05em;
     margin-bottom: clamp(24px, 1.089rem + 1.22vw, 34px);
+
+    @media (max-width: 640px) {
+      margin-bottom: 8px;
+    }
 	}
 
 	&__text-wrap {
 
     svg {
       margin-bottom: clamp(20px, 0.470rem + 2.31vw, 39px);
+
+      @media (max-width: 640px) {
+        display: none;
+      }
     }
 
     p {

@@ -98,7 +98,7 @@
         border: 2px solid #FFFFFF;
         filter: drop-shadow(0px 39px 16px rgba(0, 0, 0, 0.01)) drop-shadow(0px 22px 13px rgba(0, 0, 0, 0.05)) drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.09)) drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.1));
         border-radius: 5px;
-        height: 117px;
+        height: clamp(93px, 4.483rem + 3.32vw, 117px);
         width: auto;
         transition: .3s ease;
         pointer-events: none;
