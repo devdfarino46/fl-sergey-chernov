@@ -141,7 +141,7 @@
       </section>
 
       <section class="section about">
-        <video autoplay muted loop class="about__bg">
+        <video autoplay muted loop playsinline class="about__bg">
           <source src="img/bg/about.webm" type="video/webm">
         </video>
 
@@ -345,6 +345,62 @@
         </ul>
       </section>
 
+      <section class="section cases">
+        <svg class="aim-icon" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="48" cy="48" r="47.5" stroke="white" stroke-opacity="0.24"/>
+          <circle cx="48" cy="48" r="26.5" stroke="white" stroke-opacity="0.72"/>
+        </svg>
+        <div class="cases__bg-text">Кейсы</div>
+        <div class="cases__container">
+          <h2 class="cases__title title">[ кейсы ]</h2>
+
+          <div class="cases__content">
+            <a href="#" class="case-short">
+              <div class="case-short__image">
+                <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
+              </div>
+              <p class="case-short__app">
+                <span>заявки</span>
+                <b>+420%</b>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.85355 3.14645C9.04882 3.34171 9.04882 3.65829 8.85355 3.85355L3.85355 8.85355C3.65829 9.04882 3.34171 9.04882 3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645L8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3 3.5C3 3.22386 3.22386 3 3.5 3H8.5C8.77614 3 9 3.22386 9 3.5V8.5C9 8.77614 8.77614 9 8.5 9C8.22386 9 8 8.77614 8 8.5V4H3.5C3.22386 4 3 3.77614 3 3.5Z" fill="white"/>
+                </svg>
+              </p>
+              <p class="case-short__name">Прокат автомобилей</p>
+            </a>
+            <a href="#" class="case-short">
+              <div class="case-short__image">
+                <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
+              </div>
+              <p class="case-short__app">
+                <span>заявки</span>
+                <b>+420%</b>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.85355 3.14645C9.04882 3.34171 9.04882 3.65829 8.85355 3.85355L3.85355 8.85355C3.65829 9.04882 3.34171 9.04882 3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645L8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3 3.5C3 3.22386 3.22386 3 3.5 3H8.5C8.77614 3 9 3.22386 9 3.5V8.5C9 8.77614 8.77614 9 8.5 9C8.22386 9 8 8.77614 8 8.5V4H3.5C3.22386 4 3 3.77614 3 3.5Z" fill="white"/>
+                </svg>
+              </p>
+              <p class="case-short__name">Прокат автомобилей</p>
+            </a>
+            <a href="#" class="case-short">
+              <div class="case-short__image">
+                <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
+              </div>
+              <p class="case-short__app">
+                <span>заявки</span>
+                <b>+420%</b>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.85355 3.14645C9.04882 3.34171 9.04882 3.65829 8.85355 3.85355L3.85355 8.85355C3.65829 9.04882 3.34171 9.04882 3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645L8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3 3.5C3 3.22386 3.22386 3 3.5 3H8.5C8.77614 3 9 3.22386 9 3.5V8.5C9 8.77614 8.77614 9 8.5 9C8.22386 9 8 8.77614 8 8.5V4H3.5C3.22386 4 3 3.77614 3 3.5Z" fill="white"/>
+                </svg>
+              </p>
+              <p class="case-short__name">Прокат автомобилей</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
       <section class="section reviews">
         <div class="reviews__container">
           <h2 class="reviews__title title">[ отзывы ]</h2>
@@ -441,14 +497,14 @@
                   <button type="button" class="review__full-btn">Прочитать полностью</button>
                 </div>
                 <div class="review-photo swiper-slide rel">
-                  <video loop>
+                  <video loop playsinline>
                     <source src="img/bg/about.webm" type="video/webm">
                   </video>
                   <p class="review-photo__name">Вадим Минеев</p>
                   <img data-src="img/fiers.webp" alt="" class="fiers lazyload">
                 </div>
                 <div class="review-photo swiper-slide">
-                  <video loop>
+                  <video loop playsinline>
                     <source src="img/bg/about.webm" type="video/webm">
                   </video>
                   <p class="review-photo__name">Вадим Минеев</p>
@@ -489,6 +545,7 @@
       </section>
 
       <section class="section faq">
+        <div class="faq__before-icon"></div>
         <div class="faq__container">
           <h2 class="faq__title title">[ FAQ ]</h2>
 

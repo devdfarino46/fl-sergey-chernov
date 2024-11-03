@@ -49,7 +49,7 @@
       transform: translate(-50%, -50%) scale(0) rotateZ(80deg);
       opacity: 0;
       transition: .3s ease;
-      // transition-property: opacity, transform;
+      transition-property: opacity, transform;
       animation: jump 1s ease infinite;
       background-position: center;
       background-size: contain;

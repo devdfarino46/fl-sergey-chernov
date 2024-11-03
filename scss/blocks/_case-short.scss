@@ -1,0 +1,72 @@
+.case-short {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__image {
+    overflow: hidden;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+      display: flex;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1);
+      transition: .3s ease;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        img {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+
+  &__app {
+    background: #FF8D27;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    padding: 2px 11px;
+    position: absolute;
+    top: 0;
+    right: 15px;
+    translate: 0 -50%;
+    width: 109px;
+    
+    span {
+      font-size: 13px;
+      line-height: 139%;
+      letter-spacing: -0.05em;
+      color: rgba(255, 255, 255, 0.59);
+      margin-left: 3px;
+    }
+
+    b {
+      font-weight: 500;
+      font-size: 19px;
+      line-height: 139%;
+      letter-spacing: -0.05em;
+      color: #FFFFFF;
+      margin-top: -3px;
+    }
+
+    svg {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+
+  &__name {
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 132%;
+    letter-spacing: -0.05em;
+    color: #FFFFFF;
+  }
+}

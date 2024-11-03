@@ -11,6 +11,8 @@ const reviews = document.querySelector('.reviews');
 const services = document.querySelector('.services');
 const about = document.querySelector('.about');
 const reviewPhotos = document.querySelectorAll('.review-photo');
+const cases = document.querySelector('.cases');
+
 
 if (header && menu) {
   const menuBtn = header.querySelector('.header__menu-btn');
@@ -50,24 +52,31 @@ if (hero) {
     }
   });
 
-  const top = hero.getBoundingClientRect().top;
-
   window.addEventListener('scroll', ev => {
     if (
       hero.getBoundingClientRect().bottom > 0 &&
       hero.getBoundingClientRect().top < window.innerHeight
     ) {
-      const move = hero.getBoundingClientRect().top - top;
-      circles.style.transform = `translateY(${move * -0.1}px)`;
+      circles.style.transform = `translateY(${
+        Math.sin(window.scrollY / window.innerHeight) * 100
+      }px)`;
     }
   });
 }
 
 if (about) {
-  // const bg = 
+  const bg = about.querySelector('.about__bg');
+  window.addEventListener('scroll', () => {
+    if (about.getBoundingClientRect().bottom > 0 && 
+        about.getBoundingClientRect().top < window.innerHeight) {
+      bg.style.transform = `translateY(${Math.sin(window.scrollY / window.innerHeight) * 250}px)`;
+    } else {
+    }
+  })
 }
 
 if (faq) {
+  const beforeIcon = faq.querySelector('.faq__before-icon');
   itemFaqs.forEach((itemFaq, index) => {
     const btn = itemFaq.querySelector('.item-faq__button');
     
@@ -80,6 +89,14 @@ if (faq) {
 
       itemFaq.classList.toggle('--active');
     });
+  });
+
+  window.addEventListener('scroll', ev => {
+    if (faq.getBoundingClientRect().top < window.innerHeight) {
+      beforeIcon.style.transform = `translateX(${
+        Math.cos(window.scrollY / window.innerHeight) * 110
+      }px)`;
+    }
   });
 }
 
@@ -131,7 +148,8 @@ imgLinks.forEach( imgLink => {
 });
 
 if (reviews) {
-  const slider = new Swiper('.reviews__slider .swiper', {
+  const slider = reviews.querySelector('.reviews__slider .swiper');
+  const swiper = new Swiper(slider, {
     slidesPerView: 'auto',
     spaceBetween: 15,
 
@@ -142,18 +160,15 @@ if (reviews) {
   });
   const slideRel = reviews.querySelector('.swiper-slide.rel');
   const fiers = slideRel.querySelector('.fiers');
-  const slideRelLeft = slideRel.getBoundingClientRect().left;
   let slideRelTranslate = 0;
   const moveFiers = () => {
-    const slideRelMove = slideRel.getBoundingClientRect().left - slideRelLeft;
-    slideRelTranslate = slideRelMove * 0.1;
-
-    if (Math.abs(slideRelTranslate) <= 70) {
-      fiers.style.transform = `translateX(${slideRelTranslate}px)`;
-    }
+    slideRelTranslate = Math.sin(swiper.progress) * -70;
+    console.log(swiper.progress);
+    
+    fiers.style.transform = `translateX(${slideRelTranslate}px)`;
   }
-  slider.on('sliderMove', () => {moveFiers(); fiers.style.transition = 'none'});
-  slider.on('setTransition', () => {moveFiers(); fiers.style.transition = '.5s linear'});
+  swiper.on('sliderMove', () => {moveFiers(); fiers.style.transition = 'none'});
+  swiper.on('setTransition', () => {moveFiers(); fiers.style.transition = '.5s linear'});
 }
 
 reviewItems.forEach(review => {
@@ -200,5 +215,43 @@ if (services) {
         icon.style.top = ev.clientY+ 'px';
       })
     }
+  })
+}
+
+if (cases) {
+  const aim = cases.querySelector('.aim-icon');
+  const bgText = cases.querySelector('.cases__bg-text');
+  const items = cases.querySelectorAll('.case-short');
+  
+  document.addEventListener('scroll', () => {
+    
+    if (cases.getBoundingClientRect().bottom >= 0 &&
+        cases.getBoundingClientRect().top <= window.innerHeight) {
+      
+      bgText.style.transform = `translateY(${
+        Math.sin(window.scrollY / window.innerHeight) * 100
+      }px)`;
+      bgText.style.display = 'block';
+    } else {
+      bgText.style.display = 'none';
+    }
+  })
+
+  cases.addEventListener('mousemove', ev => {
+    aim.style.left = ev.clientX+ 'px';
+    aim.style.top = ev.clientY+ 'px';
+    aim.classList.add('--hover');
+  });
+  cases.addEventListener('mouseleave', () => {
+    aim.classList.remove('--hover');
+  });
+  
+  items.forEach((item, index) => {
+    item.addEventListener('mouseenter', ev => {
+      aim.classList.add('--in-item');
+    });
+    item.addEventListener('mouseleave', ev => {
+      aim.classList.remove('--in-item');
+    });
   })
 }
