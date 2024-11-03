@@ -253,5 +253,20 @@ if (cases) {
     item.addEventListener('mouseleave', ev => {
       aim.classList.remove('--in-item');
     });
+
+    item.addEventListener('click', ev => {
+      const href = item.getAttribute('href');
+
+      const popup = document.querySelector(href);
+      const closePopupBtn = popup.querySelector('.case-popup__close-btn');
+
+      popup.classList.add('--active');
+      document.body.classList.add('no-scroll');
+
+      closePopupBtn.addEventListener('click', () => {
+        popup.classList.remove('--active');
+        document.body.classList.remove('no-scroll');
+      })
+    })
   })
 }
