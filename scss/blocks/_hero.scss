@@ -78,27 +78,6 @@
       letter-spacing: -0.05em;
     }
 	}
-
-  &__services-wrap {
-    display: flex;
-    gap: 5px;
-    overflow: hidden;
-  }
-
-	&__services {
-    flex: 1 0 auto;
-    display: flex;
-    justify-content: center;
-    gap: 5px;
-	}
-
-	&__service-item {
-    min-width: max-content;
-    font-size: 17px;
-    line-height: 139%;
-    letter-spacing: -0.05em;
-    padding: 10px 30px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 59px;
-	}
 }
+
+@import 'mods/hero_cx-marketing';

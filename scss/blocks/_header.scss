@@ -1,6 +1,11 @@
 .header {
   padding: clamp(22px, 0.932rem + 1.11vw, 30px) 0;
 
+  &_dark {
+    background: #0F120B;
+    color: white;
+  }
+
   &.--active {
     background-color: #0D100A;
   }

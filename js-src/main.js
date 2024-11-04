@@ -12,6 +12,7 @@ const services = document.querySelector('.services');
 const about = document.querySelector('.about');
 const reviewPhotos = document.querySelectorAll('.review-photo');
 const cases = document.querySelector('.cases');
+const carouselServices = document.querySelector('.carousel-services');
 
 
 if (header && menu) {
@@ -34,23 +35,24 @@ if (header && menu) {
   });
 }
 
-if (hero) {
-  const servicesWrap = hero.querySelector('.hero__services-wrap');
-  const services = hero.querySelector('.hero__services');
-  const circles = hero.querySelector('.hero__circles');
-  
+if (carouselServices) {
+  const list = hero.querySelector('.carousel-services__list');
 
   document.addEventListener('DOMContentLoaded', () => {
-    if (services.children[0].getBoundingClientRect().left <= 100) {
-      servicesWrap.appendChild(services.cloneNode(true));
+    if (list.children[0].getBoundingClientRect().left <= 100) {
+      carouselServices.appendChild(list.cloneNode(true));
       setInterval(() => {
-        servicesWrap.scrollBy({ left: 1 });
-        if (servicesWrap.children[1].getBoundingClientRect().left <= 0) {
-          servicesWrap.scroll({ left: 0 });
+        carouselServices.scrollBy({ left: 1 });
+        if (carouselServices.children[1].getBoundingClientRect().left <= 0) {
+          carouselServices.scroll({ left: 0 });
         }
       }, 8);
     }
   });
+}
+
+if (hero) {
+  const circles = hero.querySelector('.hero__circles');
 
   window.addEventListener('scroll', ev => {
     if (
