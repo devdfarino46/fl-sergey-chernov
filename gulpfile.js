@@ -12,7 +12,8 @@ const notify = require('gulp-notify'); // notifications
 const plumber = require('gulp-plumber'); // error handling
 const webpack = require('webpack-stream'); // webpack
 const babel = require('gulp-babel'); // babel
-const sassGlob = require('gulp-sass-glob'); // globbing for sass
+const sassGlob = require('gulp-sass-glob'); // globbing for sass]
+const fileInclude = require('gulp-file-include'); // file include
 
 
 // Browsersync init
@@ -27,20 +28,19 @@ function _bs() {
 
 // Whatching
 function _whatching() {
-    gulp.watch(['**/*.html'], _html);
+    gulp.watch(['html/**/*.html'], _html);
     gulp.watch('scss/**/*.scss', _sass);
     gulp.watch(['js-src/**/*.js'], _js);
 }
 
 function _html() {
-    return gulp.src(['**/*.html', '!node_modules/**/*'])
-      .pipe(plumber({
-        errorHandler: notify.onError({
-          title: "HTML Error",
-          message: "Error: <%= error.message %>"
-        })
+    return gulp.src(['html/*.html'])
+      .pipe(fileInclude({
+        prefix: '@@',
+        basepath: '@file'
       }))
-      .pipe(browserSync.stream())
+      .pipe(gulp.dest('./'))
+      .pipe(browserSync.stream());
 }
 
 // SCSS to CSS
@@ -115,3 +115,4 @@ exports.imageMin = _imageMin;
 exports.webp = _webp;
 exports.css = _sass;
 exports.js = _js;
+exports.html = _html;
