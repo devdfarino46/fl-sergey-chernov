@@ -3,146 +3,170 @@
   padding-bottom: clamp(55px, -1.105rem + 11.36vw, 137px);
   padding-top: clamp(34px, 1.017rem + 2.77vw, 54px);
   background: transparent;
+  overflow: hidden;
+
+  @media (max-width: 940px) {
+    padding-top: 269px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 320px;
+      background: linear-gradient(180deg, rgba(241, 240, 239, 0) 50.1%, #F1F0EF 100%);
+    }
+  }
 
   &__bg {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(100% + 500px);
-    z-index: -1;
+    height: 100%;
+    z-index: -2;
     object-fit: cover;
     object-position: center;
     scale: -1 1;
     pointer-events: none;
+
+    @media (max-width: 940px) {
+      width: 130%;
+      height: 320px;
+      object-position: 100% bottom;
+      object-fit: cover;
+      bottom: auto;
+      top: 0;
+    }
   }
 
-		&__container {
-		}
+	&__container {
+	}
 
-		&__title {
-      margin-bottom: 9px;
+	&__title {
+    margin-bottom: 9px;
 
-      @media (max-width: 940px) {
-        margin-bottom: 18px;
-      }
-		}
+    @media (max-width: 940px) {
+      margin-bottom: 18px;
+    }
+	}
 
-		&__content {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px 60px;
+	&__content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px 60px;
 
-      @media (max-width: 940px) {
-        flex-direction: column;
-        align-items: stretch;
-      }
-		}
-
-		&__note {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 132%;
-      letter-spacing: -0.05em;
-      text-transform: uppercase;
-      vertical-align: middle;
-      display: flex;
+    @media (max-width: 940px) {
       flex-direction: column;
-      max-width: max-content;
-      margin-bottom: 56px;
+      align-items: stretch;
+    }
+	}
 
-      span {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-        justify-content: space-between;
-      }
+	&__note {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 132%;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    max-width: max-content;
+    margin-bottom: 56px;
 
-      @media (max-width: 940px) {
-        margin-bottom: 0;
-        margin-top: 20px;
-      }
-		}
-
-		&__text-wrap {
-      flex: 0 1 453px;
-		}
-
-		&__subtitle {
-      position: relative;
-      font-weight: 500;
-      font-size: 30px;
-      line-height: 132%;
-      letter-spacing: -0.05em;
-
-      svg {
-        position: absolute;
-        left: -61px;
-        top: 0;
-        height: 111px;
-        width: auto;
-        transform: translateX(-100%);
-      }
-		}
-
-		&__text {
-      font-weight: 300;
-      font-size: 18px;
-      line-height: 139%;
-      margin-top: clamp(28px, 1.196rem + 1.39vw, 38px);
-      margin-bottom: clamp(24px, 1.057rem + 1.11vw, 32px);
-		}
-
-		&__certifs {
+    span {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px 11px;
-		}
+      align-items: center;
+      gap: 40px;
+      justify-content: space-between;
+    }
 
-    &__certif {
+    @media (max-width: 940px) {
+      display: none;
+    }
+	}
+
+	&__text-wrap {
+    flex: 0 1 453px;
+	}
+
+	&__subtitle {
+    position: relative;
+    font-weight: 500;
+    font-size: clamp(24px, 1.168rem + 0.83vw, 30px);
+    line-height: 132%;
+    letter-spacing: -0.05em;
+
+    svg {
+      position: absolute;
+      left: -61px;
+      top: 0;
+      height: 111px;
+      width: auto;
+      transform: translateX(-100%);
+    }
+	}
+
+	&__text {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 139%;
+    margin-top: clamp(28px, 1.196rem + 1.39vw, 38px);
+    margin-bottom: clamp(24px, 1.057rem + 1.11vw, 32px);
+	}
+
+	&__certifs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 11px;
+	}
+
+  &__certif {
+    position: relative;
+    width: max-content;
+    height: max-content;
+
+    img {
       position: relative;
-      width: max-content;
-      height: max-content;
+      border: 2px solid #FFFFFF;
+      filter: drop-shadow(0px 39px 16px rgba(0, 0, 0, 0.01)) drop-shadow(0px 22px 13px rgba(0, 0, 0, 0.05)) drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.09)) drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.1));
+      border-radius: 5px;
+      height: clamp(93px, 4.483rem + 3.32vw, 117px);
+      width: auto;
+      transition: .3s ease;
+      pointer-events: none;
+    }
 
-      img {
-        position: relative;
-        border: 2px solid #FFFFFF;
-        filter: drop-shadow(0px 39px 16px rgba(0, 0, 0, 0.01)) drop-shadow(0px 22px 13px rgba(0, 0, 0, 0.05)) drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.09)) drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.1));
-        border-radius: 5px;
-        height: clamp(93px, 4.483rem + 3.32vw, 117px);
-        width: auto;
-        transition: .3s ease;
-        pointer-events: none;
-      }
+    &::after {
+      content: url(../img/loop.svg);
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%) scale(0);
+      top: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s ease;
+      transition-delay: .3s ease;
+    }
 
-      &::after {
-        content: url(../img/loop.svg);
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%) scale(0);
-        top: 24px;
-        opacity: 0;
-        pointer-events: none;
-        transition: .3s ease;
-        transition-delay: .3s ease;
-      }
+    @media (any-hover: hover) {
+      &:hover {
+        img {
+          transform: scale(1.02);
+          filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.01)) drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.05)) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.09));
+        }
 
-      @media (any-hover: hover) {
-        &:hover {
-          img {
-            transform: scale(1.02);
-            filter: drop-shadow(0px 3px 1px rgba(0, 0, 0, 0.01)) drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.05)) drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.09));
-          }
-
-          &::after {
-            transform: translate(-50%) scale(1);
-            opacity: 1;
-            pointer-events: all;
-          }
+        &::after {
+          transform: translate(-50%) scale(1);
+          opacity: 1;
+          pointer-events: all;
         }
       }
     }
+  }
 }
 
 @import 'mods/about_cx-marketing';

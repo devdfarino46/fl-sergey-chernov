@@ -73,6 +73,15 @@ if (carouselServices) {
   }, 8);
 }
 
+if (about) {
+  const cnt = about.querySelector('.about__container');
+
+  window.addEventListener('scroll', ev => {
+      
+    cnt.style.transform = `translateY(${parallax(about, 0.06)}px)`;
+  })
+}
+
 if (faq) {
   itemFaqs.forEach((itemFaq, index) => {
     const btn = itemFaq.querySelector('.item-faq__button');
@@ -88,31 +97,6 @@ if (faq) {
     });
   });
 }
-
-reviewPhotos.forEach((reviewPhoto, index) => {
-  /**
-   * @type {HTMLVideoElement}
-   */
-  const video = reviewPhoto.querySelector('.review-photo>video');
-
-  reviewPhoto.addEventListener('mousemove', () => {
-    video.play();
-  });
-
-  reviewPhoto.addEventListener('mouseleave', () => {
-    video.currentTime = 0;
-    video.pause();
-  });
-  
-  document.addEventListener('touchmove', (ev) => {
-    if (ev.composedPath().includes(reviewPhoto)) {
-      video.play();
-    } else {
-      video.currentTime = 0;
-      video.pause();
-    }
-  })
-});
 
 if (aboutVideo) {
   const btn = aboutVideo.querySelector('.about-video>button');
@@ -165,25 +149,7 @@ reviewItems.forEach(review => {
 });
 
 if (services) {
-  const items = services.querySelectorAll('.services__item');
-  items.forEach((item, index) => {
-    const title = item.querySelector('.services__item-title');
-    const btn = item.querySelector('.services__item-btn');
-    if (index < 10) {
-      title.innerHTML = `<b>0${index + 1}</b> ${title.innerHTML}`;
-    } else {
-      title.innerHTML = `<b>${index + 1}</b> ${title.innerHTML}`;
-    }
-
-    item.addEventListener('touchmove', () => {
-      btn.style.display = 'flex';
-    });
-    document.addEventListener('touchstart', (ev) => {
-      if (!ev.composedPath().includes(item)) {
-        btn.style.display = 'none';
-      }
-    })
-  });
+  
 }
 
 if (cases) {
