@@ -13,6 +13,7 @@ const about = document.querySelector('.about');
 const reviewPhotos = document.querySelectorAll('.review-photo');
 const cases = document.querySelector('.cases');
 const carouselServices = document.querySelector('.carousel-services');
+const playerVideo = document.querySelector('.player-video');
 
 const parallax = (view, move = 0.1) => {
   let rect = view.getBoundingClientRect();
@@ -122,6 +123,8 @@ imgLinks.forEach( imgLink => {
 
 if (reviews) {
   const slider = reviews.querySelector('.reviews__slider .swiper');
+  const fiers = reviews.querySelector('.swiper-slide.rel .fiers');  
+
   const swiper = new Swiper(slider, {
     slidesPerView: 'auto',
     spaceBetween: 15,
@@ -130,6 +133,10 @@ if (reviews) {
       nextEl: '.reviews__slider .swiper-button-next',
       prevEl: '.reviews__slider .swiper-button-prev',
     }
+  });
+
+  window.addEventListener('scroll', () => {
+    fiers.style.translate = `0 ${parallax(reviews)}px`;
   });
 }
 
@@ -147,6 +154,47 @@ reviewItems.forEach(review => {
     review.style.maxHeight = 'none';
   })
 });
+
+reviewPhotos.forEach(review => {
+  /**
+   * @type {HTMLVideoElement}
+   */
+  const video = review.querySelector('video');
+  const btn = review.querySelector('button');
+  const playerVideoElem = playerVideo.querySelector('video');
+  
+
+  reviews.addEventListener('mousemove', (ev) => {
+    if (ev.composedPath().includes(review)) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  });
+
+  reviews.addEventListener('touchmove', (ev) => {
+    if (ev.composedPath().includes(review)) {
+      review.classList.add('--hover');
+    } else {
+      review.classList.remove('--hover');
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    playerVideo.classList.add('--opened');
+    document.body.classList.add('no-scroll');
+    playerVideoElem.play();
+  });
+
+  playerVideo.addEventListener('click', (ev) => {
+    const videoJs = playerVideo.querySelector('.video-js');
+    if (!ev.composedPath().includes(videoJs)) {
+      playerVideo.classList.remove('--opened');
+      document.body.classList.remove('no-scroll');
+      playerVideoElem.pause();
+    }
+  })
+})
 
 if (services) {
   const items = services.querySelectorAll('.services__item');
@@ -176,9 +224,16 @@ if (services) {
       }
     }
     iconPos();
-    
     window.addEventListener('scroll', iconPos);
     window.addEventListener('resize', iconPos);
+    
+    services.addEventListener('touchmove', ev => {
+      if (ev.composedPath().includes(item)) {
+        item.classList.add('--hover');
+      } else {
+        item.classList.remove('--hover');
+      }
+    })
   });
 }
 
@@ -186,6 +241,32 @@ if (cases) {
   const aim = cases.querySelector('.aim-icon');
   const bgText = cases.querySelector('.cases__bg-text');
   const items = cases.querySelectorAll('.case-short');
+
+  const bgTextPos = () => {
+    let viewRect = cases.getBoundingClientRect();
+    let elem = bgText.getBoundingClientRect();
+
+    if (
+      viewRect.top >= window.innerHeight ||
+      viewRect.bottom <= 0
+    ) {
+      bgText.style.display = `none`;
+    } else {
+      bgText.style.display = `block`;
+    }
+    
+    if (viewRect.top <= window.innerHeight) {
+      bgText.style.top = `${viewRect.top + 150}px`;
+    }
+    if (viewRect.top <= 0) {
+      bgText.style.top = `${150}px`;
+    }
+    if (viewRect.bottom <= 800) {
+      bgText.style.top = `${viewRect.bottom - 650}px`;
+    }
+  }
+  bgTextPos();
+  window.addEventListener('scroll', bgTextPos);
 
   cases.addEventListener('mousemove', ev => {
     aim.style.left = ev.clientX+ 'px';
@@ -197,6 +278,13 @@ if (cases) {
   });
   
   items.forEach((item, index) => {
+
+    window.addEventListener('scroll', ev => {
+      if (window.innerWidth > 1200) {
+        item.style.transform = `translateY(${parallax(cases)}px)`;
+      }
+    });
+
     item.addEventListener('mouseenter', ev => {
       aim.classList.add('--in-item');
     });

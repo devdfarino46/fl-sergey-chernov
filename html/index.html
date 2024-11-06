@@ -433,17 +433,29 @@
                   <button type="button" class="review__full-btn">Прочитать полностью</button>
                 </div>
                 <div class="review-photo swiper-slide rel">
-                  <video loop playsinline>
+                  <video loop playsinline poster="img/photos/1.webp">
                     <source src="img/bg/about.webm" type="video/webm">
                   </video>
-                  <p class="review-photo__name">Вадим Минеев</p>
+                  <div>
+                    <p class="review-photo__name">Вадим Минеев</p>
+                    <button type="button">
+                      <img src="img/play.svg" alt="">
+                      <span>Смотреть</span>
+                    </button>
+                  </div>
                   <img data-src="img/fiers.webp" alt="" class="fiers lazyload">
                 </div>
                 <div class="review-photo swiper-slide">
-                  <video loop playsinline>
+                  <video loop playsinline poster="img/photos/2.webp">
                     <source src="img/bg/about.webm" type="video/webm">
                   </video>
-                  <p class="review-photo__name">Вадим Минеев</p>
+                  <div>
+                    <p class="review-photo__name">Вадим Минеев</p>
+                    <button type="button">
+                      <img src="img/play.svg" alt="">
+                      <span>Смотреть</span>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -586,6 +598,30 @@
   </div>
 
   @@include('blocks/_img-loop.html')
+
+  <div class="player-video">
+    <div class="player-video__container">
+      <video
+        id="my-video"
+        class="video-js"
+        controls
+        preload="auto"
+        width="640"
+        height="264"
+        poster="img/photos/1.webp"
+        data-setup="{}"
+      >
+        <source src="img/bg/about.webm" type="video/webm" />
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a
+          web browser that
+          <a href="https://videojs.com/html5-video-support/" target="_blank"
+            >supports HTML5 video</a
+          >
+        </p>
+      </video>
+    </div>
+  </div>
 
   <div class="case-popup-wrap">
     @@include('blocks/_case-popup.html')
