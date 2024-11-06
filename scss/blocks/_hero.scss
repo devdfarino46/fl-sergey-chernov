@@ -1,72 +1,133 @@
 .hero {
-  position: relative;
-  padding-bottom: 31px;
-  display: flex;
-  flex-direction: column;
   color: white;
   min-height: 100vh;
-
-  background-color: #0F120B;
-  background-size: cover;
-
-  &>* {
-    position: relative;
-  }
+  background-color: #070A03;
+  display: flex;
+  overflow: hidden;
 
 	&__container {
-    width: 100%;
-    margin-top: auto;
-    padding-top: 50px;
-    padding-bottom: clamp(40px, -0.456rem + 8.76vw, 112px);
+    flex: 1 0;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 
     @media (max-width: 640px) {
-      margin-top: 0;
-      margin-bottom: auto;
-      align-items: center;
+      flex-direction: column;
     }
 	}
   
   &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    z-index: 4;
+    max-width: 541px;
+    margin-top: clamp(170px, 0.542rem + 25.21vw, 352px);
 
     @media (max-width: 640px) {
+      margin-top: 138px;
       text-align: center;
     }
   }
 
 	&__title {
-    font-size: clamp(42px, 1.065rem + 4.62vw, 80px);
+    font-size: clamp(47px, 1.109rem + 4.57vw, 80px);
     line-height: 136%;
     font-weight: 400;
     letter-spacing: -0.05em;
-    margin-bottom: clamp(24px, 1.089rem + 1.22vw, 34px);
-
-    @media (max-width: 640px) {
-      margin-bottom: 8px;
-    }
 	}
 
 	&__text-wrap {
+    margin-top: clamp(8px, -0.940rem + 3.60vw, 34px);
+    margin-left: clamp(70px, 1.993rem + 5.96vw, 113px);
 
     svg {
-      margin-bottom: clamp(20px, 0.470rem + 2.31vw, 39px);
-
-      @media (max-width: 640px) {
-        display: none;
-      }
+      margin-bottom: clamp(5px, -1.017rem + 3.32vw, 29px);
     }
-
+    
     p {
       font-size: 20px;
       line-height: 139%;
       letter-spacing: -0.05em;
     }
+
+    @media (max-width: 640px) {
+      margin-left: 0;
+      svg {
+        display: none;
+      }
+    }
 	}
+
+  &__image {
+    pointer-events: none;
+    position: relative;
+    margin-top: 83px;
+    margin-left: -237px;
+    flex: 1 0;
+    
+    div {
+      position: absolute;
+      width: clamp(562px, 22.050rem + 32.69vw, 798px);
+      height: 100%;
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        width: calc(447px / 798px * 100%);
+        left: 0;
+        top: 0;
+        transform: translate(-5%, -28%);
+        aspect-ratio: 1 / 1;
+        background: rgba(217, 217, 217, 0.22);
+        filter: blur(175px);
+        border-radius: 100%;
+      }
+    }
+
+    img {
+      position: relative;
+      display: flex;
+    }
+
+    &>img {
+      position: absolute;
+      z-index: 3;
+      width: clamp(220px, 7.877rem + 14.68vw, 326px);
+      height: auto;
+      top: 141px;
+      right: 153px;
+    }
+    &>div>img {
+      z-index: 2;
+    }
+
+    @media (max-width: 1280px) {
+      margin-left: -150px;
+      margin-top: 180px;
+      &>img {
+        display: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      div {
+        left: 50%;
+        transform: translateX(-50%) translateX(50px);
+        
+        &::before {
+          transform: translate(-120px, -306px);
+          width: 447px;
+        }
+      }
+      margin: 0;
+      margin-top: -35px;
+    }
+  }
+
+  .carousel-services {
+    z-index: 4;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 63px;
+  }
 }
 
 @import 'mods/hero_cx-marketing';

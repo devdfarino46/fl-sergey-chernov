@@ -9,8 +9,7 @@
     <main class="page">
       @@include('blocks/_header.html')
 
-      <section class="section hero">
-        <div class="hero__circles"></div>
+      <section class="section hero hero-main">
         <div class="hero__container">
           <div class="hero__content">
             <h1 class="hero__title">Сергей Чернов</h1>
@@ -26,7 +25,10 @@
             </div>
           </div>
           <div class="hero__image">
-
+            <img data-src="img/bg/hero/circles.webp" alt="" class="lazyload">
+            <div>
+              <img data-src="img/bg/hero/main.webp" alt="" class="lazyload">
+            </div>
           </div>
         </div>
         @@include('blocks/_carousel-services.html')

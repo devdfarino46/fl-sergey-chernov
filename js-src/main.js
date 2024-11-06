@@ -1,6 +1,6 @@
 const header = document.querySelector('.header');
 const menu = document.querySelector('.menu');
-const hero = document.querySelector('.hero');
+const heroMain = document.querySelector('.hero.hero-main');
 const faq = document.querySelector('.faq');
 const itemFaqs = document.querySelectorAll('.item-faq');
 const imgLoop = document.querySelector('.img-loop');
@@ -14,6 +14,13 @@ const reviewPhotos = document.querySelectorAll('.review-photo');
 const cases = document.querySelector('.cases');
 const carouselServices = document.querySelector('.carousel-services');
 
+const parallax = (view, move = 0.1) => {
+  let rect = view.getBoundingClientRect();
+  let yCenter = rect.y + rect.height / 2;
+  let yScroll = window.innerHeight / 2;
+  
+  return (yCenter - yScroll) * move;
+}
 
 if (header) {
   const menuBtn = header.querySelector('.header__menu-btn');
@@ -23,13 +30,16 @@ if (header) {
     document.body.classList.toggle('no-scroll');
   });
 
-  window.addEventListener('scroll', () => {
+  const scrollEffect = () => {
     if (window.scrollY > 10) {
       header.classList.add('--scroll');
     } else {
       header.classList.remove('--scroll');
     }
-  })
+  }
+
+  scrollEffect();
+  window.addEventListener('scroll', scrollEffect);
 
   const navItemsRel = header.querySelectorAll('.header .nav__item.rel');
 
@@ -40,8 +50,18 @@ if (header) {
   })
 }
 
+if (heroMain) {
+  const circles = heroMain.querySelector('.hero__image>img');
+
+  window.addEventListener('scroll', ev => {
+    if (circles) {
+      circles.style.transform = `translateY(${parallax(circles)}px)`;
+    }
+  });
+}
+
 if (carouselServices) {
-  const list = hero.querySelector('.carousel-services__list');
+  const list = heroMain.querySelector('.carousel-services__list');
 
   carouselServices.appendChild(list.cloneNode(true));
   carouselServices.appendChild(list.cloneNode(true));
@@ -53,34 +73,7 @@ if (carouselServices) {
   }, 8);
 }
 
-if (hero) {
-  const circles = hero.querySelector('.hero__circles');
-
-  window.addEventListener('scroll', ev => {
-    if (
-      hero.getBoundingClientRect().bottom > 0 &&
-      hero.getBoundingClientRect().top < window.innerHeight
-    ) {
-      circles.style.transform = `translateY(${
-        Math.sin(window.scrollY / window.innerHeight) * 100
-      }px)`;
-    }
-  });
-}
-
-if (about) {
-  const bg = about.querySelector('.about__bg');
-  window.addEventListener('scroll', () => {
-    if (about.getBoundingClientRect().bottom > 0 && 
-        about.getBoundingClientRect().top < window.innerHeight) {
-      bg.style.transform = `translateY(${Math.sin(window.scrollY / window.innerHeight) * 250}px)`;
-    } else {
-    }
-  })
-}
-
 if (faq) {
-  const beforeIcon = faq.querySelector('.faq__before-icon');
   itemFaqs.forEach((itemFaq, index) => {
     const btn = itemFaq.querySelector('.item-faq__button');
     
@@ -93,14 +86,6 @@ if (faq) {
 
       itemFaq.classList.toggle('--active');
     });
-  });
-
-  window.addEventListener('scroll', ev => {
-    if (faq.getBoundingClientRect().top < window.innerHeight) {
-      beforeIcon.style.transform = `translateX(${
-        Math.cos(window.scrollY / window.innerHeight) * 110
-      }px)`;
-    }
   });
 }
 
@@ -162,17 +147,6 @@ if (reviews) {
       prevEl: '.reviews__slider .swiper-button-prev',
     }
   });
-  const slideRel = reviews.querySelector('.swiper-slide.rel');
-  const fiers = slideRel.querySelector('.fiers');
-  let slideRelTranslate = 0;
-  const moveFiers = () => {
-    slideRelTranslate = Math.sin(swiper.progress) * -70;
-    console.log(swiper.progress);
-    
-    fiers.style.transform = `translateX(${slideRelTranslate}px)`;
-  }
-  swiper.on('sliderMove', () => {moveFiers(); fiers.style.transition = 'none'});
-  swiper.on('setTransition', () => {moveFiers(); fiers.style.transition = '.5s linear'});
 }
 
 reviewItems.forEach(review => {
@@ -210,36 +184,12 @@ if (services) {
       }
     })
   });
-
-  services.addEventListener('mousemove', ev => {
-    if (window.innerWidth > 640) {
-      items.forEach(item => {
-        const icon = item.querySelector('._icon');
-        icon.style.left = ev.clientX+ 'px';
-        icon.style.top = ev.clientY+ 'px';
-      })
-    }
-  })
 }
 
 if (cases) {
   const aim = cases.querySelector('.aim-icon');
   const bgText = cases.querySelector('.cases__bg-text');
   const items = cases.querySelectorAll('.case-short');
-  
-  document.addEventListener('scroll', () => {
-    
-    if (cases.getBoundingClientRect().bottom >= 0 &&
-        cases.getBoundingClientRect().top <= window.innerHeight) {
-      
-      bgText.style.transform = `translateY(${
-        Math.sin(window.scrollY / window.innerHeight) * 100
-      }px)`;
-      bgText.style.display = 'block';
-    } else {
-      bgText.style.display = 'none';
-    }
-  })
 
   cases.addEventListener('mousemove', ev => {
     aim.style.left = ev.clientX+ 'px';
@@ -256,17 +206,6 @@ if (cases) {
     });
     item.addEventListener('mouseleave', ev => {
       aim.classList.remove('--in-item');
-    });
-
-    window.addEventListener('scroll', ev => {
-      const app = item.querySelector('.case-short__app');
-      const name = item.querySelector('.case-short__name');
-      app.style.transform = `translateY(${
-        Math.sin(window.scrollY / window.innerHeight) * 10
-      }px)`;
-      name.style.transform = `translateY(${
-        Math.sin(window.scrollY / window.innerHeight) * 10
-      }px)`;
     });
 
     item.addEventListener('click', ev => {
