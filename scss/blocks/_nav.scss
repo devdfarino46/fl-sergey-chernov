@@ -57,7 +57,7 @@
   &__item.rel.--active &__sublist {
     opacity: 1;
     max-height: 10000px;
-    margin-top: 14px;
+    margin-top: clamp(5px, -0.186rem + 1.25vw, 14px);
     pointer-events: all;
   }
   

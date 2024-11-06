@@ -15,40 +15,42 @@ const cases = document.querySelector('.cases');
 const carouselServices = document.querySelector('.carousel-services');
 
 
-if (header && menu) {
+if (header) {
   const menuBtn = header.querySelector('.header__menu-btn');
-  const nav = menu.querySelector('.nav');
 
   menuBtn.addEventListener('click', () => {
-    menu.classList.toggle('--active');
-    menuBtn.classList.toggle('--active');
     header.classList.toggle('--active');
+    document.body.classList.toggle('no-scroll');
   });
 
-  const itemRel = nav.querySelectorAll('.nav__item.rel');
-  
-  itemRel.forEach(item => {
-    const link = item.querySelector('.nav__item.rel>a');
-    link.addEventListener('click', (e) => {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header.classList.add('--scroll');
+    } else {
+      header.classList.remove('--scroll');
+    }
+  })
+
+  const navItemsRel = header.querySelectorAll('.header .nav__item.rel');
+
+  navItemsRel.forEach((item) => {
+    item.addEventListener('click', ev => {
       item.classList.toggle('--active');
     });
-  });
+  })
 }
 
 if (carouselServices) {
   const list = hero.querySelector('.carousel-services__list');
 
-  document.addEventListener('DOMContentLoaded', () => {
-    if (list.children[0].getBoundingClientRect().left <= 100) {
-      carouselServices.appendChild(list.cloneNode(true));
-      setInterval(() => {
-        carouselServices.scrollBy({ left: 1 });
-        if (carouselServices.children[1].getBoundingClientRect().left <= 0) {
-          carouselServices.scroll({ left: 0 });
-        }
-      }, 8);
+  carouselServices.appendChild(list.cloneNode(true));
+  carouselServices.appendChild(list.cloneNode(true));
+  setInterval(() => {
+    carouselServices.scrollBy({ left: 1 });
+    if (carouselServices.children[1].getBoundingClientRect().left <= 0) {
+      carouselServices.scroll({ left: 0 });
     }
-  });
+  }, 8);
 }
 
 if (hero) {
@@ -254,6 +256,17 @@ if (cases) {
     });
     item.addEventListener('mouseleave', ev => {
       aim.classList.remove('--in-item');
+    });
+
+    window.addEventListener('scroll', ev => {
+      const app = item.querySelector('.case-short__app');
+      const name = item.querySelector('.case-short__name');
+      app.style.transform = `translateY(${
+        Math.sin(window.scrollY / window.innerHeight) * 10
+      }px)`;
+      name.style.transform = `translateY(${
+        Math.sin(window.scrollY / window.innerHeight) * 10
+      }px)`;
     });
 
     item.addEventListener('click', ev => {

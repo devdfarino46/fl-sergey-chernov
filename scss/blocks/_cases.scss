@@ -54,7 +54,7 @@
 
       .case-short {
 
-        &:nth-child(2) {
+        &:nth-child(3n - 1) {
           margin-top: 481px;
           
           img {
@@ -62,7 +62,7 @@
           }
         }
 
-        &:nth-child(3) {
+        &:nth-child(3n) {
           margin-top: -89px;
   
           img {
@@ -70,14 +70,14 @@
           }
         }
 
-        @media (max-width: 940px) {
-          &:nth-child(2) {
+        @media (max-width: 1200px) {
+          &:nth-child(3n-1) {
             margin-top: 0;
             img {
               height: 359px;
             }
           }
-          &:nth-child(3) {
+          &:nth-child(3n) {
             margin-top: 0;
             img {
               height: 359px;
@@ -86,14 +86,14 @@
         }
       }
 
-      @media (max-width: 1362px) {
-        grid-template-columns: 530px 319px;
-      }
-
-      @media (max-width: 940px) {
+      @media (max-width: 1200px) {
         display: flex;
         flex-direction: column;
         gap: 40px;
+        align-items: center;
+      }
+
+      @media (max-width: 940px) {
       }
     }
 }

@@ -7,21 +7,10 @@
   min-height: 100vh;
 
   background-color: #0F120B;
-  background: url(../img/bg/hero/main.webp) no-repeat bottom center;
   background-size: cover;
 
   &>* {
     position: relative;
-  }
-
-  &__circles {
-    pointer-events: none;
-    position: absolute;
-    width: 326px;
-    height: 326px;
-    left: calc(50% + 11%);
-    bottom: 271px;
-    background: url(../img/bg/hero/circles.webp) no-repeat center / contain;
   }
 
 	&__container {

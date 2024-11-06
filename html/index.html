@@ -7,12 +7,10 @@
   <div class="wrapper">
 
     <main class="page">
+      @@include('blocks/_header.html')
 
       <section class="section hero">
         <div class="hero__circles"></div>
-        @@include('blocks/_header.html')
-        @@include('blocks/_menu.html')
-
         <div class="hero__container">
           <div class="hero__content">
             <h1 class="hero__title">Сергей Чернов</h1>
@@ -27,18 +25,11 @@
               </p>
             </div>
           </div>
+          <div class="hero__image">
+
+          </div>
         </div>
-        <div class="hero__services-wrap carousel-services">
-          <ul class="hero__services carousel-services__list">
-            <li class="hero__service-item carousel-services__item">Создание и продвижение сайтов</li>
-            <li class="hero__service-item carousel-services__item">Управление репутацией SERM</li>
-            <li class="hero__service-item carousel-services__item">Внедрение Битрикс 24</li>
-            <li class="hero__service-item carousel-services__item">Контекстная реклама</li>
-            <li class="hero__service-item carousel-services__item">Реклама в соц.сетях</li>
-            <li class="hero__service-item carousel-services__item">Лидогенерация</li>
-            <li class="hero__service-item carousel-services__item">Видеореклама</li>
-          </ul>
-        </div>
+        @@include('blocks/_carousel-services.html')
       </section>
 
       <section class="section about">
@@ -256,6 +247,48 @@
           <h2 class="cases__title title">[ кейсы ]</h2>
 
           <div class="cases__content">
+            <a href="#case-1" class="case-short">
+              <div class="case-short__image">
+                <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
+              </div>
+              <p class="case-short__app">
+                <span>заявки</span>
+                <b>+420%</b>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.85355 3.14645C9.04882 3.34171 9.04882 3.65829 8.85355 3.85355L3.85355 8.85355C3.65829 9.04882 3.34171 9.04882 3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645L8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3 3.5C3 3.22386 3.22386 3 3.5 3H8.5C8.77614 3 9 3.22386 9 3.5V8.5C9 8.77614 8.77614 9 8.5 9C8.22386 9 8 8.77614 8 8.5V4H3.5C3.22386 4 3 3.77614 3 3.5Z" fill="white"/>
+                </svg>
+              </p>
+              <p class="case-short__name">Прокат автомобилей</p>
+            </a>
+            <a href="#case-1" class="case-short">
+              <div class="case-short__image">
+                <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
+              </div>
+              <p class="case-short__app">
+                <span>заявки</span>
+                <b>+420%</b>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.85355 3.14645C9.04882 3.34171 9.04882 3.65829 8.85355 3.85355L3.85355 8.85355C3.65829 9.04882 3.34171 9.04882 3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645L8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3 3.5C3 3.22386 3.22386 3 3.5 3H8.5C8.77614 3 9 3.22386 9 3.5V8.5C9 8.77614 8.77614 9 8.5 9C8.22386 9 8 8.77614 8 8.5V4H3.5C3.22386 4 3 3.77614 3 3.5Z" fill="white"/>
+                </svg>
+              </p>
+              <p class="case-short__name">Прокат автомобилей</p>
+            </a>
+            <a href="#case-1" class="case-short">
+              <div class="case-short__image">
+                <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
+              </div>
+              <p class="case-short__app">
+                <span>заявки</span>
+                <b>+420%</b>
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M8.85355 3.14645C9.04882 3.34171 9.04882 3.65829 8.85355 3.85355L3.85355 8.85355C3.65829 9.04882 3.34171 9.04882 3.14645 8.85355C2.95118 8.65829 2.95118 8.34171 3.14645 8.14645L8.14645 3.14645C8.34171 2.95118 8.65829 2.95118 8.85355 3.14645Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M3 3.5C3 3.22386 3.22386 3 3.5 3H8.5C8.77614 3 9 3.22386 9 3.5V8.5C9 8.77614 8.77614 9 8.5 9C8.22386 9 8 8.77614 8 8.5V4H3.5C3.22386 4 3 3.77614 3 3.5Z" fill="white"/>
+                </svg>
+              </p>
+              <p class="case-short__name">Прокат автомобилей</p>
+            </a>
             <a href="#case-1" class="case-short">
               <div class="case-short__image">
                 <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
