@@ -149,7 +149,37 @@ reviewItems.forEach(review => {
 });
 
 if (services) {
+  const items = services.querySelectorAll('.services__item');
   
+  items.forEach((item, index) => {
+    const title = item.querySelector('.services__item-title');
+    const icon = item.querySelector('.services__item-icon');
+    
+    let num = index < 10 ? `0${index+1}`  : `${index+1}`;
+    title.innerHTML = `<b>${num}</b>${title.innerHTML}`;
+
+    const iconPos = () => {
+      if (icon && window.innerWidth > 640) {
+        const ICON_HEIGHT = 500;
+        let viewRect = services.getBoundingClientRect();
+        let iconRect = icon.getBoundingClientRect();
+        
+        if (viewRect.top <= window.innerHeight) {
+          icon.style.top = `${viewRect.top + 150}px`;
+        }
+        if (viewRect.top <= 0) {
+          icon.style.top = `${150}px`;
+        }
+        if (viewRect.bottom <= 800) {
+          icon.style.top = `${viewRect.bottom - 650}px`;
+        }
+      }
+    }
+    iconPos();
+    
+    window.addEventListener('scroll', iconPos);
+    window.addEventListener('resize', iconPos);
+  });
 }
 
 if (cases) {

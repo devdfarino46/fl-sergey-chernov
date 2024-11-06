@@ -32,66 +32,66 @@
     
     .container {
       position: relative;
-      padding-left: 79px+18;
       padding-left: calc(clamp(35px, -0.250rem + 6.09vw, 79px) + 18px);
       display: flex;
       flex-direction: column;
     }
 
-    ._icon {
-      position: fixed;
-      pointer-events: none;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      width: 500px;
-      height: 500px;
-      transform: translate(-50%, -50%) scale(0) rotateZ(80deg);
-      opacity: 0;
-      transition: .3s ease;
-      transition-property: opacity, transform;
-      animation: jump 1s ease infinite;
-      background-position: center;
-      background-size: contain;
-      background-repeat: no-repeat;
-
-      @media (max-width: 640px) {
-        opacity: 1;
-        transform: scale(1) rotateZ(0deg) !important;
-        position: absolute;
-        width: 148px;
-        height: 148px;
-        top: -10px;
-        right: 11px;
-        left: auto;
+    @media (any-hover: hover) {
+      &:hover {
+        &::before {
+          transform: scaleX(1);
+        }
       }
     }
 
-    @media (any-hover: hover) {
-      &:hover ._icon {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1) rotateZ(0deg);
+    @media (max-width: 640px) {
+      padding-top: 50px;
+      padding-bottom: 25px;
+
+      .container {
+        padding-left: 18px;
       }
     }
 	}
 
-  @media (any-hover: hover) {
-    &__item:hover {
+  &__item-icon {
+    position: fixed;
+    top: 151px;
+    right: 100%;
+    transform: scale(0);
+    opacity: 0;
+    pointer-events: none;
+    height: 500px;
+    width: auto;
+    transition: .5s ease;
+    transition-property: opacity, transform, right;
+    animation-name: jump;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 
-      &::before {
-        transform: scaleX(1);
-      }
+    @media (max-width: 640px) {
+      position: absolute;
+      transform: none;
+      opacity: 1;
+      right: 11px;
+      top: -2px;
+      height: 148px;
     }
+  }
 
-    &__item:hover &__item-btn {
-      display: flex;
+  @media (any-hover: hover) {
+    &__item:hover &__item-icon {
+      right: 18px;
+      transform: scale(1);
+      opacity: 1;
     }
   }
 
 	&__item-title {
     z-index: 2;
     font-weight: 500;
-    font-size: clamp(32px, 1.058rem + 2.35vw, 49px);
+    font-size: clamp(26px, 0.351rem + 3.19vw, 49px);
     line-height: 132%;
     letter-spacing: -0.05em;
     margin-bottom: 12px;
@@ -99,21 +99,35 @@
     b {
       position: absolute;
       left: 18px;
-      top: clamp(16px, 0.446rem + 1.39vw, 26px);
+      top: clamp(10px, -0.261rem + 2.22vw, 26px);
       font-weight: 300;
-      font-size: 18px;
+      font-size: clamp(14px, 0.653rem + 0.55vw, 18px);
       line-height: 1;
+    }
+
+    @media (max-width: 640px) {
+      max-width: 176px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: flex-start;
+
+      b {
+        position: static;
+        margin-right: 24px;
+        margin-top: 8px;
+      }
     }
 	}
 
 	&__sublist {
     z-index: 2;
     display: flex;
-    gap: 10px;
+    gap: clamp(5px, 0.035rem + 0.69vw, 10px);
     flex-wrap: wrap;
     max-width: 900px;
 
     @media (max-width: 640px) {
+      max-width: 330px;
     }
 	}
 
@@ -123,7 +137,7 @@
     letter-spacing: -0.05em;
     padding: 8px 31px 10px;
     background: rgba(217, 217, 217, 0.7);
-    border-radius: 10px;
+    border-radius: clamp(5px, 0.035rem + 0.69vw, 10px);
     transition: .2s ease;
 
     @media (any-hover: hover) {
@@ -139,14 +153,24 @@
 	}
 
 	&__item-btn {
-    z-index: 2;
     margin-top: 10px;
+    z-index: 2;
     display: none;
     max-width: 296px;
 
     @media (max-width: 640px) {
-      // display: flex !important;
+      display: flex;
       max-width: none;
     }
 	}
+
+  &__item.--hover &__item-btn {
+    display: flex;
+  }
+
+  @media (any-hover: hover) {
+    &__item:hover &__item-btn {
+      display: flex;
+    }
+  }
 }
