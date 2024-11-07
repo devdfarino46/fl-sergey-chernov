@@ -35,35 +35,39 @@ fixRects.forEach((parent) => {
   const func = () => {
     const elems = parent.querySelectorAll('.fix-rect__elem');
 
-    let rect = parent.getBoundingClientRect();
+    const media = Number(parent.dataset.media) || 0;
 
-    elems.forEach((elem) => {
-      const height = Number(parent.dataset.height);
-      const top = Number(parent.dataset.top);
+    if (window.innerWidth > media) {
+      let rect = parent.getBoundingClientRect();
 
-      let elemRect = elem.getBoundingClientRect();
+      elems.forEach((elem) => {
+        const height = Number(parent.dataset.height);
+        const top = Number(parent.dataset.top);
 
-      // Hide elements that are not in the viewport
-      if (
-        rect.top < window.innerHeight &&
-        rect.bottom > 0
-      ) {
-        elem.style.display = 'block';
-      } else {
-        elem.style.display = 'none';
-      }
+        let elemRect = elem.getBoundingClientRect();
 
-      if (rect.top < window.innerHeight) {
-        elem.style.top = `${rect.top + top}px`;
-      }
-      if (rect.top <= 0) {
-        elem.style.top = `${top}px`;
-      }
-      if (rect.bottom <= top + height) {
-        elem.style.top = `${rect.bottom - height}px`;
+        // Hide elements that are not in the viewport
+        if (
+          rect.top < window.innerHeight &&
+          rect.bottom > 0
+        ) {
+          elem.style.display = 'block';
+        } else {
+          elem.style.display = 'none';
+        }
 
-      }
-    })
+        // Fix elements that are not in the viewport
+        if (rect.top < window.innerHeight) {
+          elem.style.top = `${rect.top + top}px`;
+        }
+        if (rect.top <= 0) {
+          elem.style.top = `${top}px`;
+        }
+        if (rect.bottom <= top + height) {
+          elem.style.top = `${rect.bottom - height}px`;
+        }
+      });
+    }
   }
 
   func();
