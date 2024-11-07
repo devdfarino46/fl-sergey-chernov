@@ -7,9 +7,9 @@
   <div class="wrapper">
 
     <main class="page">
-      @@include('blocks/_header.html')
+      @@include('blocks/_header.html', {class: ''})
 
-      <section class="section hero hero-main">
+      <section class="section hero">
         <div class="hero__container">
           <div class="hero__content">
             <h1 class="hero__title">Сергей Чернов</h1>
@@ -24,10 +24,10 @@
               </p>
             </div>
           </div>
-          <div class="hero__image">
+          <div class="hero__image parallax">
             <img data-src="img/bg/hero/circles.webp" alt="" class="lazyload">
             <div>
-              <img data-src="img/bg/hero/main.webp" alt="" class="lazyload">
+              <img data-src="img/bg/hero/main.webp" alt="" class="lazyload parallax__elem" data-move="0.1">
             </div>
           </div>
         </div>
@@ -42,8 +42,8 @@
         <div class="about__container">
           <h2 class="about__title title">[ обо мне ]</h2>
           
-          <div class="about__content">
-            <p class="about__note">
+          <div class="about__content parallax">
+            <p class="about__note parallax__elem" data-move="0.1">
               <span>
                 <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12.524 0.488155C13.1587 1.13903 13.1587 2.1943 12.524 2.84518L6.02405 9.51184C5.38945 10.1627 4.36055 10.1627 3.72595 9.51184L0.475951 6.17851C-0.158651 5.52764 -0.158651 4.47236 0.475951 3.82149C1.11055 3.17061 2.13945 3.17061 2.77405 3.82149L4.875 5.97631L10.226 0.488155C10.8606 -0.162718 11.8894 -0.162718 12.524 0.488155Z" fill="#FF8D27"/>
@@ -107,13 +107,13 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/IcKBmEtFE8E?si=UpwK9jKk1fJcpS9H" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </section>
 
-      <section class="section services">
+      <section class="section services fix-rect" data-height="500" data-top="150">
         <div class="services__container">
           <h2 class="services__title title">[ услуги ]</h2>
         </div>
         <ul class="services__list">
           <li class="services__item">
-            <img data-src="../img/services/4.webp" alt="" class="services__item-icon lazyload">
+            <img data-src="img/services/4.webp" alt="" class="services__item-icon fix-rect__elem lazyload">
             <div class="container">
               <p class="services__item-title">Маркетинг</p>
               <ul class="services__sublist">
@@ -131,7 +131,7 @@
             </div>
           </li>
           <li class="services__item">
-            <img data-src="../img/services/6.webp" alt="" class="services__item-icon lazyload">
+            <img data-src="img/services/6.webp" alt="" class="services__item-icon fix-rect__elem lazyload">
             <div class="container">
               <p class="services__item-title">Веб-разработка</p>
               <ul class="services__sublist">
@@ -149,7 +149,7 @@
             </div>
           </li>
           <li class="services__item">
-            <img data-src="../img/services/7.webp" alt="" class="services__item-icon lazyload">
+            <img data-src="img/services/7.webp" alt="" class="services__item-icon fix-rect__elem lazyload">
             <div class="container">
               <p class="services__item-title">Контекстная реклама</p>
               <ul class="services__sublist">
@@ -167,7 +167,7 @@
             </div>
           </li>
           <li class="services__item">
-            <img data-src="../img/services/1.webp" alt="" class="services__item-icon lazyload">
+            <img data-src="img/services/1.webp" alt="" class="services__item-icon fix-rect__elem lazyload">
             <div class="container">
               <p class="services__item-title">SEO</p>
               <ul class="services__sublist">
@@ -184,7 +184,7 @@
             </div>
           </li>
           <li class="services__item">
-            <img data-src="../img/services/3.webp" alt="" class="services__item-icon lazyload">
+            <img data-src="img/services/3.webp" alt="" class="services__item-icon fix-rect__elem lazyload">
             <div class="container">
               <p class="services__item-title">SMM</p>
               <ul class="services__sublist">
@@ -202,7 +202,7 @@
             </div>
           </li>
           <li class="services__item">
-            <img data-src="../img/services/2.webp" alt="" class="services__item-icon lazyload">
+            <img data-src="img/services/2.webp" alt="" class="services__item-icon fix-rect__elem lazyload">
             <div class="container">
               <p class="services__item-title">Работа над репутацией SERM</p>
               <ul class="services__sublist">
@@ -220,7 +220,7 @@
             </div>
           </li>
           <li class="services__item">
-            <img data-src="../img/services/5.webp" alt="" class="services__item-icon lazyload">
+            <img data-src="img/services/5.webp" alt="" class="services__item-icon fix-rect__elem lazyload">
             <div class="container">
               <p class="services__item-title">Платформы объявлений</p>
               <ul class="services__sublist">
@@ -239,17 +239,17 @@
         </ul>
       </section>
 
-      <section class="section cases">
+      <section class="section cases fix-rect" data-height="407" data-top="150">
         <svg class="aim-icon" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="48" cy="48" r="47.5" stroke="white" stroke-opacity="0.24"/>
           <circle cx="48" cy="48" r="26.5" stroke="white" stroke-opacity="0.72"/>
         </svg>
-        <div class="cases__bg-text">Кейсы</div>
+        <div class="cases__bg-text fix-rect__elem">Кейсы</div>
         <div class="cases__container">
           <h2 class="cases__title title">[ кейсы ]</h2>
 
-          <div class="cases__content">
-            <a href="#case-1" class="case-short">
+          <div class="cases__content parallax">
+            <a href="#case-1" class="case-short parallax__elem" data-move="0.08">
               <div class="case-short__image">
                 <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
               </div>
@@ -263,7 +263,7 @@
               </p>
               <p class="case-short__name">Прокат автомобилей</p>
             </a>
-            <a href="#case-1" class="case-short">
+            <a href="#case-1" class="case-short parallax__elem" data-move="0.1">
               <div class="case-short__image">
                 <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
               </div>
@@ -277,7 +277,7 @@
               </p>
               <p class="case-short__name">Прокат автомобилей</p>
             </a>
-            <a href="#case-1" class="case-short">
+            <a href="#case-1" class="case-short parallax__elem" data-move="0.12">
               <div class="case-short__image">
                 <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
               </div>
@@ -291,7 +291,7 @@
               </p>
               <p class="case-short__name">Прокат автомобилей</p>
             </a>
-            <a href="#case-1" class="case-short">
+            <a href="#case-1" class="case-short parallax__elem" data-move="0.08">
               <div class="case-short__image">
                 <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
               </div>
@@ -305,7 +305,7 @@
               </p>
               <p class="case-short__name">Прокат автомобилей</p>
             </a>
-            <a href="#case-1" class="case-short">
+            <a href="#case-1" class="case-short parallax__elem" data-move="0.1">
               <div class="case-short__image">
                 <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
               </div>
@@ -319,7 +319,7 @@
               </p>
               <p class="case-short__name">Прокат автомобилей</p>
             </a>
-            <a href="#case-1" class="case-short">
+            <a href="#case-1" class="case-short parallax__elem" data-move="0.12">
               <div class="case-short__image">
                 <img data-src="img/cases/1.webp" alt="" class="lazyload" width="330" height="359">
               </div>
@@ -432,7 +432,7 @@
                   </p>
                   <button type="button" class="review__full-btn">Прочитать полностью</button>
                 </div>
-                <div class="review-photo swiper-slide rel">
+                <div class="review-photo swiper-slide rel parallax">
                   <video loop playsinline poster="img/photos/1.webp">
                     <source src="img/bg/about.webm" type="video/webm">
                   </video>
@@ -443,7 +443,7 @@
                       <span>Смотреть</span>
                     </button>
                   </div>
-                  <img data-src="img/fiers.webp" alt="" class="fiers lazyload">
+                  <img data-src="img/fiers.webp" alt="" class="fiers parallax__elem lazyload" data-move="0.08">
                 </div>
                 <div class="review-photo swiper-slide">
                   <video loop playsinline poster="img/photos/2.webp">
@@ -599,29 +599,7 @@
 
   @@include('blocks/_img-loop.html')
 
-  <div class="player-video">
-    <div class="player-video__container">
-      <video
-        id="my-video"
-        class="video-js"
-        controls
-        preload="auto"
-        width="640"
-        height="264"
-        poster="img/photos/1.webp"
-        data-setup="{}"
-      >
-        <source src="img/bg/about.webm" type="video/webm" />
-        <p class="vjs-no-js">
-          To view this video please enable JavaScript, and consider upgrading to a
-          web browser that
-          <a href="https://videojs.com/html5-video-support/" target="_blank"
-            >supports HTML5 video</a
-          >
-        </p>
-      </video>
-    </div>
-  </div>
+  @@include('blocks/_player-video.html');
 
   <div class="case-popup-wrap">
     @@include('blocks/_case-popup.html')

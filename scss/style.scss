@@ -72,6 +72,13 @@ body {
   animation-iteration-count: infinite;
 }
 
+.fix-rect {
+
+  &__elem {
+    position: fixed;
+  }
+}
+
 .case-popup-wrap {
   
 }

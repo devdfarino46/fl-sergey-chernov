@@ -1,6 +1,4 @@
 const header = document.querySelector('.header');
-const menu = document.querySelector('.menu');
-const heroMain = document.querySelector('.hero.hero-main');
 const faq = document.querySelector('.faq');
 const itemFaqs = document.querySelectorAll('.item-faq');
 const imgLoop = document.querySelector('.img-loop');
@@ -9,19 +7,69 @@ const aboutVideo = document.querySelector('.about-video');
 const reviewItems = document.querySelectorAll('.review');
 const reviews = document.querySelector('.reviews');
 const services = document.querySelector('.services');
-const about = document.querySelector('.about');
 const reviewPhotos = document.querySelectorAll('.review-photo');
 const cases = document.querySelector('.cases');
 const carouselServices = document.querySelector('.carousel-services');
 const playerVideo = document.querySelector('.player-video');
 
-const parallax = (view, move = 0.1) => {
-  let rect = view.getBoundingClientRect();
-  let yCenter = rect.y + rect.height / 2;
-  let yScroll = window.innerHeight / 2;
+const parallaxes = document.querySelectorAll('.parallax');
+const fixRects = document.querySelectorAll('.fix-rect');
+
+parallaxes.forEach((parent) => {
+  window.addEventListener('scroll', () => {
+    const elems = parent.querySelectorAll('.parallax__elem');
+
+    let rect = parent.getBoundingClientRect();
+    let yCenter = rect.y + rect.height / 2;
+    let yScroll = window.innerHeight / 2;
+
+    elems.forEach((elem) => {
+      const move = Number(elem.dataset.move) || 0.1;
   
-  return (yCenter - yScroll) * move;
-}
+      elem.style.transform = `translateY(${(yCenter - yScroll) * move}px) `;
+    });
+  })
+})
+
+fixRects.forEach((parent) => {
+  const func = () => {
+    const elems = parent.querySelectorAll('.fix-rect__elem');
+
+    let rect = parent.getBoundingClientRect();
+
+    elems.forEach((elem) => {
+      const height = Number(parent.dataset.height);
+      const top = Number(parent.dataset.top);
+
+      let elemRect = elem.getBoundingClientRect();
+
+      // Hide elements that are not in the viewport
+      if (
+        rect.top < window.innerHeight &&
+        rect.bottom > 0
+      ) {
+        elem.style.display = 'block';
+      } else {
+        elem.style.display = 'none';
+      }
+
+      if (rect.top < window.innerHeight) {
+        elem.style.top = `${rect.top + top}px`;
+      }
+      if (rect.top <= 0) {
+        elem.style.top = `${top}px`;
+      }
+      if (rect.bottom <= top + height) {
+        elem.style.top = `${rect.bottom - height}px`;
+
+      }
+    })
+  }
+
+  func();
+  window.addEventListener('scroll', func);
+  window.addEventListener('resize', func);
+})
 
 if (header) {
   const menuBtn = header.querySelector('.header__menu-btn');
@@ -51,18 +99,8 @@ if (header) {
   })
 }
 
-if (heroMain) {
-  const circles = heroMain.querySelector('.hero__image>img');
-
-  window.addEventListener('scroll', ev => {
-    if (circles) {
-      circles.style.transform = `translateY(${parallax(circles)}px)`;
-    }
-  });
-}
-
 if (carouselServices) {
-  const list = heroMain.querySelector('.carousel-services__list');
+  const list = carouselServices.querySelector('.carousel-services__list');
 
   carouselServices.appendChild(list.cloneNode(true));
   carouselServices.appendChild(list.cloneNode(true));
@@ -72,15 +110,6 @@ if (carouselServices) {
       carouselServices.scroll({ left: 0 });
     }
   }, 8);
-}
-
-if (about) {
-  const cnt = about.querySelector('.about__container');
-
-  window.addEventListener('scroll', ev => {
-      
-    cnt.style.transform = `translateY(${parallax(about, 0.06)}px)`;
-  })
 }
 
 if (faq) {
@@ -133,10 +162,6 @@ if (reviews) {
       nextEl: '.reviews__slider .swiper-button-next',
       prevEl: '.reviews__slider .swiper-button-prev',
     }
-  });
-
-  window.addEventListener('scroll', () => {
-    fiers.style.translate = `0 ${parallax(reviews)}px`;
   });
 }
 
@@ -205,27 +230,6 @@ if (services) {
     
     let num = index < 10 ? `0${index+1}`  : `${index+1}`;
     title.innerHTML = `<b>${num}</b>${title.innerHTML}`;
-
-    const iconPos = () => {
-      if (icon && window.innerWidth > 640) {
-        const ICON_HEIGHT = 500;
-        let viewRect = services.getBoundingClientRect();
-        let iconRect = icon.getBoundingClientRect();
-        
-        if (viewRect.top <= window.innerHeight) {
-          icon.style.top = `${viewRect.top + 150}px`;
-        }
-        if (viewRect.top <= 0) {
-          icon.style.top = `${150}px`;
-        }
-        if (viewRect.bottom <= 800) {
-          icon.style.top = `${viewRect.bottom - 650}px`;
-        }
-      }
-    }
-    iconPos();
-    window.addEventListener('scroll', iconPos);
-    window.addEventListener('resize', iconPos);
     
     services.addEventListener('touchmove', ev => {
       if (ev.composedPath().includes(item)) {
@@ -239,35 +243,9 @@ if (services) {
 
 if (cases) {
   const aim = cases.querySelector('.aim-icon');
-  const bgText = cases.querySelector('.cases__bg-text');
   const items = cases.querySelectorAll('.case-short');
 
-  const bgTextPos = () => {
-    let viewRect = cases.getBoundingClientRect();
-    let elem = bgText.getBoundingClientRect();
-
-    if (
-      viewRect.top >= window.innerHeight ||
-      viewRect.bottom <= 0
-    ) {
-      bgText.style.display = `none`;
-    } else {
-      bgText.style.display = `block`;
-    }
-    
-    if (viewRect.top <= window.innerHeight) {
-      bgText.style.top = `${viewRect.top + 150}px`;
-    }
-    if (viewRect.top <= 0) {
-      bgText.style.top = `${150}px`;
-    }
-    if (viewRect.bottom <= 800) {
-      bgText.style.top = `${viewRect.bottom - 650}px`;
-    }
-  }
-  bgTextPos();
-  window.addEventListener('scroll', bgTextPos);
-
+  // Aim position
   cases.addEventListener('mousemove', ev => {
     aim.style.left = ev.clientX+ 'px';
     aim.style.top = ev.clientY+ 'px';
@@ -278,13 +256,7 @@ if (cases) {
   });
   
   items.forEach((item, index) => {
-
-    window.addEventListener('scroll', ev => {
-      if (window.innerWidth > 1200) {
-        item.style.transform = `translateY(${parallax(cases)}px)`;
-      }
-    });
-
+    // Aim scale
     item.addEventListener('mouseenter', ev => {
       aim.classList.add('--in-item');
     });
@@ -292,6 +264,7 @@ if (cases) {
       aim.classList.remove('--in-item');
     });
 
+    // Open popup
     item.addEventListener('click', ev => {
       const href = item.getAttribute('href');
 

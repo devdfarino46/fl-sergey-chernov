@@ -73,7 +73,7 @@
         width: calc(447px / 798px * 100%);
         left: 0;
         top: 0;
-        transform: translate(-5%, -28%);
+        translate: -5% -28%;
         aspect-ratio: 1 / 1;
         background: rgba(217, 217, 217, 0.22);
         filter: blur(175px);
@@ -129,5 +129,3 @@
     bottom: 63px;
   }
 }
-
-@import 'mods/hero_cx-marketing';
