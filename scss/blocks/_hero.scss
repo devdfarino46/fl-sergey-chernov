@@ -1,9 +1,12 @@
 .hero {
   color: white;
-  min-height: 100vh;
+  min-height: 841px;
+  height: 100vh;
+  max-height: 940px;
   background-color: #070A03;
   display: flex;
   overflow: hidden;
+  position: relative;
 
 	&__container {
     flex: 1 0;

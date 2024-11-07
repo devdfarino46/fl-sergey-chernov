@@ -56,13 +56,13 @@
 	}
 
   &__item-icon {
-    position: fixed;
-    top: 151px;
+    position: absolute;
+    top: 50%;
     right: 100%;
-    transform: scale(0);
+    transform: scale(0) translateY(-50%);
     opacity: 0;
     pointer-events: none;
-    height: 500px;
+    height: clamp(148px, -10.251rem + 48.75vw, 500px);
     width: auto;
     transition: .5s ease;
     transition-property: opacity, transform, right;
@@ -77,13 +77,14 @@
       right: 11px;
       top: -2px;
       height: 148px;
+      transform: none;
     }
   }
 
   @media (any-hover: hover) {
     &__item:hover &__item-icon {
       right: 18px;
-      transform: scale(1);
+      transform: scale(1) translateY(-50%);
       opacity: 1;
     }
   }

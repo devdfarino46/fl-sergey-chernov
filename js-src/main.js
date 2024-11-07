@@ -108,6 +108,10 @@ if (carouselServices) {
 
   carouselServices.appendChild(list.cloneNode(true));
   carouselServices.appendChild(list.cloneNode(true));
+  carouselServices.appendChild(list.cloneNode(true));
+  carouselServices.appendChild(list.cloneNode(true));
+  carouselServices.appendChild(list.cloneNode(true));
+  carouselServices.appendChild(list.cloneNode(true));
   setInterval(() => {
     carouselServices.scrollBy({ left: 1 });
     if (carouselServices.children[1].getBoundingClientRect().left <= 0) {
@@ -230,7 +234,6 @@ if (services) {
   
   items.forEach((item, index) => {
     const title = item.querySelector('.services__item-title');
-    const icon = item.querySelector('.services__item-icon');
     
     let num = index < 10 ? `0${index+1}`  : `${index+1}`;
     title.innerHTML = `<b>${num}</b>${title.innerHTML}`;
