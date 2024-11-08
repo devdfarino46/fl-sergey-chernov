@@ -7,6 +7,12 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 90% center;
+  background-color: #0E110B;
+
+  @media (min-width: 1280px) {
+    background-size: contain;
+    background-position: center;
+  }
 
   &>button {
     position: relative;
