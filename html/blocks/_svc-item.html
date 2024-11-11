@@ -1,0 +1,15 @@
+<a href="@@href" class="svc-item">
+  <p class="svc-item__title">@@title</p>
+  <p class="svc-item__text">
+    @@text
+  </p>
+  <div class="svc-item__bottom">
+    @@for (var i = 0; i < tags.length; i++) {
+      <p class="svc-item__tag">`+tags[i]+`</p>
+    }
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="30" height="30" rx="8" fill="#FF8D27"/>
+      <path d="M14 9H21M21 9L9 21M21 9V16" stroke="white"/>
+    </svg>
+  </div>
+</a>

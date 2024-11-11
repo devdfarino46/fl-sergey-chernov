@@ -1,0 +1,74 @@
+.svc-item {
+  position: relative;
+  font-family: 'Graphik';
+  background: #1B2127;
+  border-radius: 26px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 25px 20px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 26px;
+    background: linear-gradient(119.32deg, #241601 10.55%, #734F08 36.78%, #734F08 66.03%, #241601 94.95%);
+    border: 1px solid #A68262;
+    transition: .3s ease;
+    opacity: 0;
+  }
+
+  &>* {
+    position: relative;
+  }
+
+  &__title {
+    font-weight: 275;
+    font-size: 22px;
+    line-height: 120%;
+    letter-spacing: -0.05em;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+
+  &__text {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 24px;
+    color: #9A9C9F;
+    margin-bottom: clamp(16px, -0.274rem + 3.19vw, 39px);
+    transition: .3s ease;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: auto;
+
+    svg {
+      margin-left: auto;
+      gap: 5px;
+    }
+  }
+
+  &__tag {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.71;
+    color: #FFFFFF;
+    padding: 3px 17px;
+    background: #2A2923;
+    border-radius: 100px;
+  }
+
+  @media (any-hover: hover) {
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &:hover &__text {
+      color: #FFFFFF;
+    }
+  }
+}
