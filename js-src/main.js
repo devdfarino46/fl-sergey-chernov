@@ -11,6 +11,7 @@ const reviewPhotos = document.querySelectorAll('.review-photo');
 const cases = document.querySelector('.cases');
 const carouselServices = document.querySelector('.carousel-services');
 const playerVideo = document.querySelector('.player-video');
+const casesGrid = document.querySelector('.cases-grid');
 
 const parallaxes = document.querySelectorAll('.parallax');
 const fixRects = document.querySelectorAll('.fix-rect');
@@ -284,7 +285,28 @@ if (cases) {
       closePopupBtn.addEventListener('click', () => {
         popup.classList.remove('--active');
         document.body.classList.remove('no-scroll');
-      })
+      });
+    })
+  })
+}
+
+if (casesGrid) {
+  const items = casesGrid.querySelectorAll('.cases-grid__item');
+
+  items.forEach((item, index) => {
+    item.addEventListener('click', (ev) => {
+      const href = item.getAttribute('href');
+
+      const popup = document.querySelector(href);
+      const closePopupBtn = popup.querySelector('.case-popup__close-btn');
+
+      popup.classList.add('--active');
+      document.body.classList.add('no-scroll');
+
+      closePopupBtn.addEventListener('click', () => {
+        popup.classList.remove('--active');
+        document.body.classList.remove('no-scroll');
+      });
     })
   })
 }
