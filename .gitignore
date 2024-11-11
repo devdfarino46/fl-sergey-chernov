@@ -6,3 +6,4 @@ js/*.bundle.js
 js/*.bundle.js.map
 *.html
 !html/**/*.html
+*.rar
