@@ -6,10 +6,102 @@
 </head>
 <body>
   <div class="wrapper">
-    @@include('blocks/_header.html', {class: ''})
+    @@include('blocks/_header.html', {class: 'header_dark'})
 
     <main class="page">
+      <section class="h-cx-market">
+        <div class="h-cx-market__container">
+          <nav class="page-nav">
+             <a href="#">Главная</a>
+             <a href="#">Услуги</a>
+             <a href="#" class="_this">Комплексный маркетинг</a>
+          </nav>
 
+          <div class="h-cx-market__wrapper">
+            <div class="h-cx-market__content">
+              <h1 class="h-cx-market__title">Комплексный маркетинг</h1>
+              <p class="h-cx-market__descr">
+                Подберем к вашему бизнесу стратегический подход 
+                в продвижении с использованием различных источников 
+                привлечения целевой аудитории
+              </p>
+              <a href="#" class="h-cx-market__btn btn">
+                <span>Заказать услугу</span>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7287 4.27144C11.9838 4.52658 11.9838 4.94025 11.7287 5.19539L5.19533 11.7287C4.94018 11.9839 4.52652 11.9839 4.27137 11.7287C4.01623 11.4736 4.01623 11.0599 4.27137 10.8048L10.8047 4.27144C11.0599 4.01629 11.4735 4.01629 11.7287 4.27144Z" fill="white"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M4.08002 4.73341C4.08002 4.37259 4.37252 4.08008 4.73335 4.08008H11.2667C11.6275 4.08008 11.92 4.37259 11.92 4.73341V11.2667C11.92 11.6276 11.6275 11.9201 11.2667 11.9201C10.9059 11.9201 10.6134 11.6276 10.6134 11.2667V5.38674H4.73335C4.37252 5.38674 4.08002 5.09424 4.08002 4.73341Z" fill="white"/>
+                </svg>
+              </a>
+              <p class="h-cx-market__note">
+                <span class="_top">
+                  <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.4561 24.9635C1.09963 24.9635 0 23.8363 0 22.4459V13.9155C0 10.1429 1.06349 6.96928 3.19047 4.3944C4.84857 2.34045 6.76869 0.905148 8.95084 0.0884677C9.91862 -0.273755 10.8649 0.526067 10.8649 1.5822V3.50957C10.8649 4.20483 10.4386 4.81444 9.83839 5.1383C7.01605 6.66123 5.60488 9.43724 5.60488 13.4663H8.40878C9.7652 13.4663 10.8649 14.5935 10.8649 15.9839V22.4459C10.8649 23.8363 9.7652 24.9635 8.40878 24.9635H2.4561ZM16.5547 24.9635C15.1983 24.9635 14.0986 23.8363 14.0986 22.4459V13.9155C14.0986 10.1429 15.1621 6.96928 17.2891 4.3944C18.9472 2.34045 20.8673 0.905148 23.0495 0.0884677C24.0173 -0.273755 24.9635 0.526067 24.9635 1.5822V3.50957C24.9635 4.20483 24.5372 4.81444 23.937 5.1383C21.1147 6.66123 19.7035 9.43724 19.7035 13.4663H22.5074C23.8639 13.4663 24.9635 14.5935 24.9635 15.9839V22.4459C24.9635 23.8363 23.8639 24.9635 22.5074 24.9635H16.5547Z" fill="#555555"/>
+                  </svg>
+                  <span>Создаю возможности - </span>
+                </span>
+                <span class="_bottom"> от идеи до результата</span>
+              </p>
+            </div>
+            <div class="h-cx-market__image">
+              <img data-src="img/bg/hero/cx-marketing.webp" alt="" class="lazyload" width="519" height="576">
+            </div>
+          </div>
+          <ul class="h-cx-market__list">
+            <li class="h-cx-market__l-item">
+              <p class="h-cx-market__li-title">
+                <span>Полный спектр услуг</span>
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M21 6.25L24.4425 9.6925L17.1225 17.005L11.1225 11.005L0 22.1275L2.1225 24.25L11.1225 15.25L17.1225 21.25L26.5575 11.8075L30 15.25V6.25H21Z" fill="#FF8D27"/>
+                </svg>
+              </p>
+              <p class="h-cx-market__li-text">
+                Все необходимое для онлайн-продвижения —  от разработки контента 
+                до управления репутацией, что позволяет вам сосредоточиться на 
+                основных бизнес-целях.
+              </p>
+            </li>
+            <li class="h-cx-market__l-item">
+              <p class="h-cx-market__li-title">
+                <span>Данные и технологии</span>
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M21 6.25L24.4425 9.6925L17.1225 17.005L11.1225 11.005L0 22.1275L2.1225 24.25L11.1225 15.25L17.1225 21.25L26.5575 11.8075L30 15.25V6.25H21Z" fill="#FF8D27"/>
+                </svg>
+              </p>
+              <p class="h-cx-market__li-text">
+                Используем современные аналитические инструменты и 
+                технологии, при отслеживании результатов и трендов, для 
+                достижения наилучших результатов.
+              </p>
+            </li>
+            <li class="h-cx-market__l-item">
+              <p class="h-cx-market__li-title">
+                <span>Индивидуальные стратегии</span>
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M21 6.25L24.4425 9.6925L17.1225 17.005L11.1225 11.005L0 22.1275L2.1225 24.25L11.1225 15.25L17.1225 21.25L26.5575 11.8075L30 15.25V6.25H21Z" fill="#FF8D27"/>
+                </svg>
+              </p>
+              <p class="h-cx-market__li-text">
+                Создаем адаптированные маркетинговые решения, учитывая 
+                специфику вашего бизнеса и целевую аудиторию, что 
+                способствует повышению конверсии и увеличению прибыли.
+              </p>
+            </li>
+            <li class="h-cx-market__l-item">
+              <p class="h-cx-market__li-title">
+                <span>Поддержка и обучение</span>
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M21 6.25L24.4425 9.6925L17.1225 17.005L11.1225 11.005L0 22.1275L2.1225 24.25L11.1225 15.25L17.1225 21.25L26.5575 11.8075L30 15.25V6.25H21Z" fill="#FF8D27"/>
+                </svg>
+              </p>
+              <p class="h-cx-market__li-text">
+                Обучаем вашу команду, обеспечивая знания и навыки 
+                для самостоятельного управления онлайн-продвижением в 
+                будущем.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
       
 
       @@include('blocks/_feedback.html')
