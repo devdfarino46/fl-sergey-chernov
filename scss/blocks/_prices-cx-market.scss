@@ -1,0 +1,136 @@
+.prices-cx-market {
+  background: #191A1B;
+  color: white;
+  text-align: center;
+  font-family: 'Graphik';
+  padding: clamp(50px, 0.355rem + 6.93vw, 100px) 0;
+
+		&__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+		}
+
+		&__title {
+      font-weight: 600;
+      max-width: 941px;
+      font-size: clamp(30px, 0.767rem + 2.77vw, 50px);
+      line-height: 132%;
+      letter-spacing: -0.05em;
+      margin-bottom: clamp(18px, 0.793rem + 0.83vw, 24px);
+
+      strong {
+        color: #FF8D27;
+        font-weight: inherit;
+      }
+		}
+
+		&__text {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 139%;
+      max-width: 756px;
+      margin-bottom: clamp(25px, 0.177rem + 3.46vw, 50px);
+		}
+
+		&__items {
+      display: flex;
+      gap: 10px 30px;
+
+      @media (max-width: 1000px) {
+        flex-direction: column;
+        align-items: center;
+      }
+		}
+
+		&__item {
+      background: #FFFFFF;
+      border-radius: 27px;
+      color: #0E110A;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      padding: 14px 12px 49px;
+      width: 422px;
+
+      @media (max-width: 1000px) {
+        width: auto;
+        padding: 35px 12px 25px;
+      }
+		}
+
+		&__item-icon {
+      width: 74px;
+      height: 74px;
+      background: #1B2127;
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+
+      img {
+        display: flex;
+        margin-top: -1px;
+      }
+		}
+
+		&__item-title {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 139%;
+      text-transform: uppercase;
+      color: #0E110A;
+      margin-bottom: clamp(10px, 0.237rem + 0.97vw, 17px);
+      max-width: 265px;
+      height: calc(2em * 1.39);
+
+      @media (max-width: 1000px) {
+        height: auto;
+      }
+		}
+
+		&__item-text {
+      max-width: 290px;
+      font-size: 16px;
+      line-height: 132%;
+      letter-spacing: -0.05em;
+      color: rgba(14, 17, 10, 0.7);
+      margin-bottom: clamp(35px, 1.689rem + 1.25vw, 44px);
+		}
+
+		&__item-price {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 132%;
+      letter-spacing: -0.05em;
+      color: #0E110A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      margin-top: auto;
+
+      strong {
+        font-weight: 400;
+        font-size: 28px;
+        line-height: 132%;
+        letter-spacing: -0.05em;
+        color: #FF8D27;
+
+        b {
+          font-style: normal;
+          font-weight: 600;
+        }
+
+        i {
+          font-style: normal;
+          font-weight: 600;
+        }
+      }
+		}
+
+		&__btn {
+      margin-top: clamp(20px, 0.142rem + 2.77vw, 40px);
+		}
+}
