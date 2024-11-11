@@ -2,7 +2,8 @@
   font-family: 'Graphik';
   background: #191A1B;
   color: white;
-  padding: clamp(50px, 0.355rem + 6.93vw, 100px) 0;
+  padding-top: clamp(50px, 0.355rem + 6.93vw, 100px);
+  padding-bottom: clamp(75px, 0.532rem + 10.39vw, 150px);
 
 	&__container {
     display: flex;
