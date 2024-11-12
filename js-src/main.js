@@ -12,9 +12,20 @@ const cases = document.querySelector('.cases');
 const carouselServices = document.querySelector('.carousel-services');
 const playerVideo = document.querySelector('.player-video');
 const casesGrid = document.querySelector('.cases-grid');
+const getCxMarket = document.querySelector('.get-cx-market');
 
 const parallaxes = document.querySelectorAll('.parallax');
 const fixRects = document.querySelectorAll('.fix-rect');
+
+const clamp = (x, min, max) => {
+  if ((x < min)) {
+    return min;
+  } else if (x > max) {
+    return max;
+  } else {
+    return x;
+  }
+}
 
 parallaxes.forEach((parent) => {
   window.addEventListener('scroll', () => {
@@ -84,9 +95,20 @@ if (header) {
     document.body.classList.toggle('no-scroll');
   });
 
+  let oldScrollY = 0;
+
   const scrollEffect = () => {
+    let newScrollY = window.scrollY;
     if (window.scrollY > 10) {
       header.classList.add('--scroll');
+
+      if (newScrollY > oldScrollY) {
+        header.classList.add('--scroll-down');
+        oldScrollY = newScrollY;
+      } else {
+        header.classList.remove('--scroll-down');
+        oldScrollY = newScrollY;
+      }
     } else {
       header.classList.remove('--scroll');
     }
@@ -309,4 +331,51 @@ if (casesGrid) {
       });
     })
   })
+}
+
+if (getCxMarket) {
+  const backdrop = document.querySelector('.get-cx-market-backdrop');
+  const items = getCxMarket.querySelectorAll('.get-cx-market__item');
+
+  const SCROLL_SH = 250; // scroll step height
+  const OFFSET = 50; // offset top
+  const MOBILE = 980; // mobile breakpoint
+  const ITEMS_COUNT = items.length; // items count (3)
+
+  const scrollAnim = () => {
+    if (window.innerWidth > MOBILE) {
+      const bRect = backdrop.getBoundingClientRect(); // backdrop rect
+      const bHeight = window.innerHeight + SCROLL_SH * ITEMS_COUNT;
+
+      backdrop.style.height = `
+        ${bHeight}px
+      `; // init backdrop height
+  
+      if (bRect.top <= window.innerHeight) {
+        getCxMarket.style.top = `
+          ${bRect.top}px
+        `;
+      }
+      if (bRect.top < 0) {
+        getCxMarket.style.top = `
+          ${0}px
+        `;
+        
+        items.forEach((item, i) => {
+          if (i !== 0) {
+            item.style.transform = `translateY(-${
+              clamp(-bRect.top, 0, (i) * SCROLL_SH)
+            }px)`;
+          }
+        });
+      }
+      if (bRect.top + bHeight <= window.innerHeight) {
+        getCxMarket.style.top = `
+          ${bRect.top + SCROLL_SH * ITEMS_COUNT}px
+        `;
+      }
+    }
+  }
+  scrollAnim();
+  window.addEventListener('scroll', scrollAnim);
 }

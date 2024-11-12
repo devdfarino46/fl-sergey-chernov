@@ -25,6 +25,10 @@
     box-shadow: 0 0 10px black;
   }
 
+  &.--scroll-down {
+    transform: translateY(-100%);
+  }
+
   &__container {
     display: grid;
     align-items: center;
