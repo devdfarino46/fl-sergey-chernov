@@ -334,46 +334,38 @@ if (casesGrid) {
 }
 
 if (getCxMarket) {
-  const backdrop = document.querySelector('.get-cx-market-backdrop');
+  const fixWrap = getCxMarket.querySelector('.get-cx-market__fix-wrap');
   const items = getCxMarket.querySelectorAll('.get-cx-market__item');
 
   const SCROLL_SH = 250; // scroll step height
-  const OFFSET = 50; // offset top
   const MOBILE = 980; // mobile breakpoint
   const ITEMS_COUNT = items.length; // items count (3)
+  const height = window.innerHeight + SCROLL_SH * ITEMS_COUNT; // height of backdrop
 
   const scrollAnim = () => {
     if (window.innerWidth > MOBILE) {
-      const bRect = backdrop.getBoundingClientRect(); // backdrop rect
-      const bHeight = window.innerHeight + SCROLL_SH * ITEMS_COUNT;
+      const rect = getCxMarket.getBoundingClientRect(); // backdrop rect
 
-      backdrop.style.height = `
-        ${bHeight}px
-      `; // init backdrop height
-  
-      if (bRect.top <= window.innerHeight) {
-        getCxMarket.style.top = `
-          ${bRect.top}px
-        `;
+      getCxMarket.style.height = height + 'px';
+      
+      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+        fixWrap.classList.add('--fixed');
+        fixWrap.classList.remove('--bottom');
+      } else if (rect.bottom < window.innerHeight)  {
+        fixWrap.classList.remove('--fixed');
+        fixWrap.classList.add('--bottom');
+      } else {
+        fixWrap.classList.remove('--fixed');
+        fixWrap.classList.remove('--bottom');
       }
-      if (bRect.top < 0) {
-        getCxMarket.style.top = `
-          ${0}px
-        `;
         
-        items.forEach((item, i) => {
-          if (i !== 0) {
-            item.style.transform = `translateY(-${
-              clamp(-bRect.top, 0, (i) * SCROLL_SH)
-            }px)`;
-          }
-        });
-      }
-      if (bRect.top + bHeight <= window.innerHeight) {
-        getCxMarket.style.top = `
-          ${bRect.top + SCROLL_SH * ITEMS_COUNT}px
-        `;
-      }
+      items.forEach((item, i) => {
+        if (i !== 0) {
+          item.style.transform = `translateY(-${
+            clamp(-rect.top, 0, (i) * SCROLL_SH)
+          }px)`;
+        }
+      });
     }
   }
   scrollAnim();
