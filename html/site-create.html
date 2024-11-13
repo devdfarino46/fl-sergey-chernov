@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  @@include('blocks/_head.html')
+  
+</head>
+<body>
+  <div class="wrapper">
+    @@include('blocks/_header_2.html')
+
+    <main class="page">
+      <section class="section h-site-create">
+        <div class="h-site-create__container">
+          <div class="h-site-create__top">
+            <div class="h-site-create__title-wrap">
+              <h1 class="h-site-create__title">Создание сайта</h1>
+              <p class="h-site-create__descr">Сайты, которые превращают посетителей в клиентов!</p>
+            </div>
+            
+            <div class="h-site-create__image">
+              <picture>
+                <source media="(max-width: 940px)" srcset="img/site-create-mobile.webp">
+                <img src="img/site-create-pc.webp" alt="" width="774" height="467">
+              </picture>
+            </div>
+          </div>
+
+          <ul class="h-site-create__list">
+            <li class="h-site-create__item">
+              <img src="../img/icons/site-create/1.webp" alt="">
+              <p class="h-site-create__item-title">— Современный UX/UI дизайн</p>
+              <div class="h-site-create__item-text">
+                Акцентируем внимание на пользовательском опыте (UX), 
+                применяя удобные навигационные элементы и включение 
+                отзывчивых интерфейсов, что позволяет пользователям 
+                легко находить нужную информацию.
+              </div>
+            </li>
+            <li class="h-site-create__item">
+              <img src="../img/icons/site-create/2.webp" alt="">
+              <p class="h-site-create__item-title">— Эффективная структура</p>
+              <div class="h-site-create__item-text">
+                Четкое и логичное распределение контента, что упрощает навигацию 
+                и помогает пользователям быстро воспринимать информацию и 
+                взаимодействовать с сайтом.
+              </div>
+            </li>
+            <li class="h-site-create__item">
+              <img src="../img/icons/site-create/3.webp" alt="">
+              <p class="h-site-create__item-title">— Лучшие решения для вас</p>
+              <div class="h-site-create__item-text">
+                Над созданием вашего сайта будет работать команда разработчиков 
+                с многолетним опытом, предлагая индивидуальные решения для бизнеса 
+                любого уровня.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    @@include('blocks/_footer.html')
+  </div>
+
+  <div class="case-popup-wrap">
+    @@include('blocks/_case-popup.html')
+  </div>
+</body>
+</html>
