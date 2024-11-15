@@ -3,6 +3,10 @@
   padding-bottom: clamp(20px, -1.534rem + 4.74vw, 40px);
   background: #FFFFFF;
 
+    @media (max-width: 940px) {
+      padding-top: 120px;
+    }
+
 		&__container {
 		}
 
@@ -12,6 +16,10 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: clamp(30px, -9.541rem + 19.43vw, 112px);
+
+      @media (max-width: 940px) {
+        display: none;
+      }
 		}
 
 		&__title {
@@ -34,6 +42,10 @@
       position: relative;
       height: 100vh;
       // background: #d8eccc;
+
+      @media (max-width: 1362px) {
+        height: auto;
+      }
     }
 
 		&__list {
@@ -52,6 +64,22 @@
       &[data-pos="fixed"] {
         position: fixed;
         transition: .5s ease transform;
+      }
+
+      @media (max-width: 1362px) {
+        position: relative;
+        margin-bottom: 120px;
+
+        .container {
+          width: max-content;
+          gap: 33px;
+        }
+      }
+
+      @media (max-width: 940px) {
+        .container {
+          width: auto;
+        }
       }
 		}
 
@@ -95,6 +123,29 @@
         &.--pulse img {
           filter: drop-shadow(0px 0px 0px #ff8c2d);
         }
+      }
+
+      @media (max-width: 1362px) {
+        display: grid;
+        align-items: stretch;
+        justify-content: stretch;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-top: 0;
+        padding-bottom: 0;
+        gap: 33px !important;
+        column-gap: 70px !important;
+
+        ._arrow {
+          display: none;
+        }
+
+        ._vector {
+          display: none;
+        }
+      }
+
+      @media (max-width: 940px) {
+        grid-template-columns: 1fr;
       }
 		}
 
@@ -141,6 +192,23 @@
           font-size: 117px;
         }
       }
+
+      @media (max-width: 1362px) {
+        margin-top: 0 !important;
+        width: auto;
+
+        img {
+          width: 83px;
+          opacity: 1;
+          filter: none;
+          margin-bottom: 43px;
+        }
+
+        ._num {
+          bottom: 49px !important;
+          right: 5px !important;
+        }
+      }
 		}
 
     @media (any-hover: hover) {
@@ -163,6 +231,11 @@
       line-height: 1;
       color: #000000;
       margin-bottom: 24px;
+
+      @media (max-width: 1362px) {
+        font-size: 29px;
+        margin-bottom: 22px;
+      }
 		}
 
 		&__item-text {
@@ -173,6 +246,11 @@
       opacity: 0.7;
       transition: .3s ease;
       transform: translateY(20px);
+
+      @media (max-width: 1362px) {
+        transform: none;
+        font-size: 16px;
+      }
 		}
     &__item.--active &__item-text {
       transform: translateY(0px);
@@ -216,6 +294,10 @@
       ._vector img {
         left: 54px;
         top: 71px;
+      }
+
+      @media (max-width: 1362px) {
+        align-self: stretch;
       }
     }
 
