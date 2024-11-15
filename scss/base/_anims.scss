@@ -22,3 +22,16 @@
     translate: 0 0;
   }
 }
+
+@keyframes jump10px {
+  from {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 10px;
+  }
+
+  to {
+    translate: 0 0;
+  }
+}

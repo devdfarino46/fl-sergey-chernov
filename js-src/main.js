@@ -13,6 +13,7 @@ const carouselServices = document.querySelector('.carousel-services');
 const playerVideo = document.querySelector('.player-video');
 const casesGrid = document.querySelector('.cases-grid');
 const getCxMarket = document.querySelector('.get-cx-market');
+const stepsVector = document.querySelector('.steps-vector');
 
 const parallaxes = document.querySelectorAll('.parallax');
 const fixRects = document.querySelectorAll('.fix-rect');
@@ -340,34 +341,173 @@ if (getCxMarket) {
   const SCROLL_SH = 250; // scroll step height
   const MOBILE = 980; // mobile breakpoint
   const ITEMS_COUNT = items.length; // items count (3)
-  const height = window.innerHeight + SCROLL_SH * ITEMS_COUNT; // height of backdrop
 
   const scrollAnim = () => {
     if (window.innerWidth > MOBILE) {
       const rect = getCxMarket.getBoundingClientRect(); // backdrop rect
+      const fRect = fixWrap.getBoundingClientRect(); // fix wrap rect
+      const height = fRect.height + SCROLL_SH * ITEMS_COUNT; // height of backdrop
 
       getCxMarket.style.height = height + 'px';
       
-      if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+      if (rect.top <= 0 && rect.bottom >= fRect.height) {
+        header.classList.add('--scroll-look');
         fixWrap.classList.add('--fixed');
         fixWrap.classList.remove('--bottom');
-      } else if (rect.bottom < window.innerHeight)  {
+        
+        items.forEach((item, i) => {
+          if (i !== 0) {
+            item.style.marginTop = `${
+              clamp(
+                rect.top + SCROLL_SH * (items.length - 1) - i * SCROLL_SH, 
+                i* SCROLL_SH - (i+1) * SCROLL_SH, 
+                0)
+            }px`;
+          }
+        });
+      } else if (rect.bottom < fRect.height)  {
+        header.classList.remove('--scroll-look');
         fixWrap.classList.remove('--fixed');
         fixWrap.classList.add('--bottom');
       } else {
+        header.classList.remove('--scroll-look');
         fixWrap.classList.remove('--fixed');
         fixWrap.classList.remove('--bottom');
       }
-        
-      items.forEach((item, i) => {
-        if (i !== 0) {
-          item.style.transform = `translateY(-${
-            clamp(-rect.top, 0, (i) * SCROLL_SH)
-          }px)`;
-        }
-      });
     }
   }
   scrollAnim();
   window.addEventListener('scroll', scrollAnim);
+}
+
+if (stepsVector) {
+  const listBackdrop = stepsVector.querySelector('.steps-vector__list-backdrop');
+  const list = stepsVector.querySelector('.steps-vector__list');
+
+  if (list && listBackdrop && window.innerWidth > 1362) {
+    const rows = list.querySelectorAll('.steps-vector__l-row');
+
+    const SCROLL_SH = 800;
+        
+    const scrollAnim = () => {
+      const rect = list.getBoundingClientRect();
+      const bRect = listBackdrop.getBoundingClientRect();
+      const lrRect = rows[rows.length - 1].getBoundingClientRect();
+      
+      listBackdrop.style.height = `${
+        SCROLL_SH * rows.length + lrRect.height
+      }px`; // Init backdrop height
+
+       // If list is in viewport
+      if (bRect.top <= 0 && bRect.bottom >= lrRect.height) {
+        header.classList.add('--scroll-look');
+        list.dataset.pos = "fixed";
+        list.style.top = null;
+      // If scroll down
+      } else if (bRect.bottom < lrRect.height) {
+        header.classList.remove('--scroll-look');
+        list.dataset.pos = null;
+        list.style.transform  = `translateY(${rect.y - lrRect.y}px)`;
+        list.style.top = `${
+          bRect.height - rect.height - 
+          (rect.y - lrRect.y)
+        }px`;
+      // If scroll up
+      } else {
+        header.classList.remove('--scroll-look');
+        list.dataset.pos = null;
+        list.style.transform  = `translateY(0px)`;
+        list.style.top = null;
+      }
+
+      // If scroll rows
+      rows.forEach((row, rIndex) => {
+        const vector = row.querySelector('._vector');
+        const arrow = row.querySelector('._arrow');
+        const items = row.querySelectorAll('.steps-vector__item');
+        
+        const rowRect = row.getBoundingClientRect();
+        const vectorRect = vector.getBoundingClientRect();
+
+        // Vector scroll animation
+        vector.style.width = `${
+          clamp(
+            (-bRect.top / SCROLL_SH) - rIndex,
+            -items.length + 1,
+            2
+          ) * 100
+        }%`;
+
+        // Arrow scroll animation
+        if (arrow) {
+          arrow.style.transform = `translateX(${
+            clamp(
+              -bRect.top / SCROLL_SH - rIndex,
+              0,
+              1
+            ) * 80
+          }px)`;
+        }
+        
+        // Arrow rotate animation on hover
+        items.forEach((item, i) => {
+          item.addEventListener('mouseenter', ev => {
+            arrow.style.rotate = `20deg`;
+          });
+          item.addEventListener('mouseleave', ev => {
+            arrow.style.rotate = `0deg`;
+          })
+        })
+          
+        // If scroll in row
+        if (bRect.top <= rIndex * -SCROLL_SH &&
+          bRect.top > (rIndex + 1) * -SCROLL_SH
+        ) {
+          // Move top position row
+          list.style.transform  = `translateY(${rect.y - rowRect.y}px)`;
+
+          items.forEach((item, iIndex) => {
+            const icon = item.querySelector('img');
+            const text = item.querySelector('.steps-vector__item-text');
+            const itemRect = item.getBoundingClientRect();
+            const iconRect = icon.getBoundingClientRect();
+
+            // Pulse animation vector
+            if (vectorRect.right >= iconRect.left && vectorRect.right <= iconRect.right) {
+              vector.classList.add('--pulse');
+              vector.addEventListener('transitionend', () => {
+                vector.classList.remove('--pulse');
+              });
+            }
+
+            // If vector > item left dot
+            if (vectorRect.right > itemRect.left) {
+              let progress = clamp((vectorRect.right - itemRect.left) / itemRect.width , 0, 1);
+              
+              icon.style.transform = `rotate(${
+                Math.abs(Math.sin(progress * Math.PI) * 30)
+              }deg)`;
+
+              icon.style.opacity = (80 + progress * 20) + '%';
+              icon.style.filter = `blur(${(1 - progress) * 3})`;
+
+              // And < right dot
+              if (vectorRect.right < itemRect.right) {
+                item.classList.add('--active');
+              } else {
+                item.classList.remove('--active');
+              }
+            } else {
+              icon.style.transform = null;
+              icon.style.opacity = null;
+              item.classList.remove('--active');
+            }
+          })
+        }
+      })
+    }
+
+    window.addEventListener('load', scrollAnim);
+    window.addEventListener('scroll', scrollAnim);
+  }
 }

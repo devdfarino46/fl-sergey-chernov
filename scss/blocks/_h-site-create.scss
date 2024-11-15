@@ -8,7 +8,7 @@
   padding-top: clamp(124px, 7.030rem + 1.80vw, 137px);
   padding-bottom: clamp(46px, 2.266rem + 1.52vw, 57px);
   border-radius: 0 0 $bRadius $bRadius;
-  // margin-bottom: calc(-1 * $bRadius);
+  margin-bottom: calc(-1 * $bRadius);
 
   @media (max-width: 1730px) {
     background-position: -98px calc(100% + 180px), right -82px;

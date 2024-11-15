@@ -2,7 +2,18 @@
   $bRadius: clamp(25px, 0.177rem + 3.46vw, 50px);
   position: relative;
   font-family: 'Graphik';
-  height: calc(100vh + 100px);
+  height: calc(100vh);
+
+  &::before {
+    position: absolute;
+    content: '';
+    background: #FFFFFF;
+    border-radius: $bRadius;
+    top: calc(-1 * $bRadius);
+    bottom: calc(-1 * $bRadius);
+    left: 0;
+    right: 0;
+  }
 
   @media (max-width: 980px) {
     height: auto;
@@ -13,16 +24,13 @@
     &__fix-wrap {
       position: absolute;
       z-index: 999;
-      height: calc(100vh + 100px);
+      height: max-content;
       overflow: hidden;
       left: 0;
       right: 0;
       top: 0;
-      margin-top: calc(-1 * $bRadius);
-      margin-bottom: calc(-1 * $bRadius);
       padding: clamp(50px, 0.355rem + 6.93vw, 100px) 0;
-      border-radius: $bRadius;
-      background: #FFFFFF;
+      background: transparent;
 
       &.--bottom {
         top: auto;

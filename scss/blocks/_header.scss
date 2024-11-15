@@ -24,13 +24,17 @@
     overflow: auto;
   }
 
-  &.--scroll {
+  &.--scroll:not([data-disable]) {
     background-color: #0D100A;
     box-shadow: 0 0 10px black;
     padding: clamp(22px, 0.932rem + 1.11vw, 30px) 0;
   }
 
   &.--scroll-down {
+    transform: translateY(-100%);
+  }
+
+  &.--scroll-look {
     transform: translateY(-100%);
   }
 
