@@ -159,7 +159,7 @@
         margin-bottom: 47px;
         width: 90px;
         height: auto;
-        filter: blur(2px);
+        filter: blur(3px);
         opacity: 80%;
         transition: .2s ease;
 
@@ -222,6 +222,7 @@
       animation-timing-function: ease;
       animation-duration: 1.4s;
       animation-iteration-count: infinite;
+      scale: 1.2;
     }
 
 		&__item-title {

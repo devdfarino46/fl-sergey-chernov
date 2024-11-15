@@ -481,7 +481,7 @@ if (stepsVector) {
             }
 
             // If vector > item left dot
-            if (vectorRect.right > itemRect.left) {
+            if (vectorRect.right > itemRect.left && vectorRect.width > 100) {
               let progress = clamp((vectorRect.right - itemRect.left) / itemRect.width , 0, 1);
               
               icon.style.transform = `rotate(${
@@ -489,7 +489,7 @@ if (stepsVector) {
               }deg)`;
 
               icon.style.opacity = (80 + progress * 20) + '%';
-              icon.style.filter = `blur(${(1 - progress) * 3})`;
+              icon.style.filter = `blur(${(1 - progress) * 3}px)`;
 
               // And < right dot
               if (vectorRect.right < itemRect.right) {
@@ -500,6 +500,7 @@ if (stepsVector) {
             } else {
               icon.style.transform = null;
               icon.style.opacity = null;
+              icon.style.filter = null;
               item.classList.remove('--active');
             }
           })
