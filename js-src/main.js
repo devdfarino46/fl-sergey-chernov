@@ -14,6 +14,7 @@ const playerVideo = document.querySelector('.player-video');
 const casesGrid = document.querySelector('.cases-grid');
 const getCxMarket = document.querySelector('.get-cx-market');
 const stepsVector = document.querySelector('.steps-vector');
+const hYaDirect = document.querySelector('.h-ya-direct');
 
 const parallaxes = document.querySelectorAll('.parallax');
 const fixRects = document.querySelectorAll('.fix-rect');
@@ -511,4 +512,26 @@ if (stepsVector) {
     window.addEventListener('load', scrollAnim);
     window.addEventListener('scroll', scrollAnim);
   }
+}
+
+if (hYaDirect) {
+  const cards = document.querySelectorAll('.h-ya-direct__card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (ev) => {
+      const rect = card.getBoundingClientRect();
+      const x = (ev.clientX - rect.x - rect.width / 2) / rect.width * 2 * 30;
+      const y = (ev.clientY - rect.y - rect.height / 2) / rect.height * 2 * 30;
+
+      card.style.translate = `
+        ${x}px
+        ${y}px
+      `;
+      card.style.transition = null;
+    });
+    card.addEventListener('mouseleave', (ev) => {
+      card.style.translate = '0 0';
+      card.style.transition = 'all 0.5s ease';
+    })
+  })
 }
