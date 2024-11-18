@@ -14,10 +14,13 @@ const playerVideo = document.querySelector('.player-video');
 const casesGrid = document.querySelector('.cases-grid');
 const getCxMarket = document.querySelector('.get-cx-market');
 const stepsVector = document.querySelector('.steps-vector');
-const hYaDirect = document.querySelector('.h-ya-direct');
+const hYadirect = document.querySelector('.h-yadirect');
+const aboutYadirect = document.querySelector('.about-yadirect');
 
 const parallaxes = document.querySelectorAll('.parallax');
 const fixRects = document.querySelectorAll('.fix-rect');
+const textCcolorAnim = document.querySelectorAll('.text-color-anim');
+const mouseMoveAnim = document.querySelectorAll('.mouse-move-anim');
 
 const clamp = (x, min, max) => {
   if ((x < min)) {
@@ -514,24 +517,61 @@ if (stepsVector) {
   }
 }
 
-if (hYaDirect) {
-  const cards = document.querySelectorAll('.h-ya-direct__card');
+mouseMoveAnim.forEach(el => {
+  const move = Number(el.dataset.move) || 30;
+  let startX = 0;
+  let startY = 0;
 
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (ev) => {
-      const rect = card.getBoundingClientRect();
-      const x = (ev.clientX - rect.x - rect.width / 2) / rect.width * 2 * 30;
-      const y = (ev.clientY - rect.y - rect.height / 2) / rect.height * 2 * 30;
-
-      card.style.translate = `
-        ${x}px
-        ${y}px
-      `;
-      card.style.transition = null;
-    });
-    card.addEventListener('mouseleave', (ev) => {
-      card.style.translate = '0 0';
-      card.style.transition = 'all 0.5s ease';
-    })
+  el.addEventListener('mouseenter', (ev) => {
+    el.setAttribute('mouseevent', 'enter');
+    startX = ev.clientX;
+    startY = ev.clientY;
   })
-}
+  el.addEventListener('mousemove', (ev) => {
+    el.setAttribute('mouseevent', 'move');
+
+    const rect = el.getBoundingClientRect();
+    const x = (ev.clientX - startX) / rect.width * move;
+    const y = (ev.clientY - startY) / rect.height * move;
+
+    el.style.translate = `
+      ${x}px
+      ${y}px
+    `;
+  });
+  el.addEventListener('mouseleave', (ev) => {
+    el.setAttribute('mouseevent','leave');
+    el.style.translate = '0 0';
+  });
+});
+
+textCcolorAnim.forEach(el => {
+  const SCROLL_H = Number(el.dataset.scrollh) || 500;
+
+  let words = el.textContent.split('\n').join(' ').split(' ');
+  let spans = '';
+  words.forEach((word, i) => {
+    if (word.length > 0) {
+      spans += `<span class="_word">${word}</span> `;
+    }
+  });
+  
+  el.innerHTML = spans;
+  let spansArr = el.querySelectorAll('span._word');
+
+  const textAnimation = () => {
+    let spanH = SCROLL_H / spansArr.length; // (35.71)
+    let rect = aboutYadirect.getBoundingClientRect();
+    let top = clamp(-rect.top + SCROLL_H, 0, SCROLL_H);
+    
+    spansArr.forEach((span, i) => {
+      span.style.transition = null;
+      span.style.opacity = `${
+        clamp((top - spanH * i) / spanH, 0, 1) * 0.7 + 0.3
+      }`;
+    });
+  }
+  
+  window.addEventListener('load', textAnimation);
+  window.addEventListener('scroll', textAnimation);
+});

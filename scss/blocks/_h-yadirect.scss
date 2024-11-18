@@ -124,6 +124,14 @@
         border-color: #575B61;
       }
     }
+
+    &[mouseevent="leave"] {
+      transition-property: border, translate;
+    }
+
+    &[mouseevent="enter"] {
+      transition-property: border, translate;
+    }
   }
 
   &__card-icon {
