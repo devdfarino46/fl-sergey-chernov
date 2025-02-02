@@ -1,9 +1,5 @@
-node_modules/
-package-lock.json
-css/*.css
-css/*.css.map
-js/*.bundle.js
-js/*.bundle.js.map
+css/
+js/
+fontello/
 *.html
 !html/**/*.html
-*.rar
