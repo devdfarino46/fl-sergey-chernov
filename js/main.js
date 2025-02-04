@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
-/*!*************************************************!*\
-  !*** ../Freelance/sergey-chernov/babel/main.js ***!
-  \*************************************************/
+/*!****************************************************!*\
+  !*** ../Portfolio/fl-sergey-chernov/babel/main.js ***!
+  \****************************************************/
 const header = document.querySelector('.header');
 const faq = document.querySelector('.faq');
 const itemFaqs = document.querySelectorAll('.item-faq');

@@ -9,7 +9,7 @@
     padding-top: 269px;
 
     &::before {
-      content: '';
+      // content: '';
       position: absolute;
       z-index: -1;
       top: 0;
@@ -34,8 +34,8 @@
 
     @media (max-width: 940px) {
       width: 130%;
-      height: 320px;
-      object-position: 100% bottom;
+      // height: 320px;
+      // object-position: 100% bottom;
       object-fit: cover;
       bottom: auto;
       top: 0;

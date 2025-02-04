@@ -508,7 +508,6 @@ body {
     padding-top: 269px
   }
   .about::before {
-    content: "";
     position: absolute;
     z-index: -1;
     top: 0;
@@ -535,9 +534,6 @@ body {
 @media (max-width:940px) {
   .about__bg {
     width: 130%;
-    height: 320px;
-    -o-object-position: 100% bottom;
-    object-position: 100% bottom;
     -o-object-fit: cover;
     object-fit: cover;
     bottom: auto;
